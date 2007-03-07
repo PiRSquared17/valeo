@@ -1,12 +1,10 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 0 = Black          1 = Blue            2 = Green
 3 = Aqua           4 = Red             5 = Purple
 6 = Yellow         7 = White           8 = Gray
 9 = Light Blue     10 = Light Green    11 = Light Aqua
 12 = Light Red     13 = Light Purple   14 = Light Yellow
-
-Este código é baseado no software Python Wikipedia Bot, distribuído pela MIT license.
 
 """
 import ctypes, sys
