@@ -10,7 +10,7 @@ from mimetypes import guess_type
 from sys import exit, argv
 from socket import gaierror
 
-def Zip2Mail(attach):
+def sendmail(attach):
     mail = raw_input(u'Email: ')
     user = raw_input('User: ')
     passw = getpass('Password mail: ')
@@ -54,10 +54,10 @@ def main():
     try:
         attach = argv[1]
     except:
-        print (u'\nRun: python send-attach.py test.eml')
+        print (u'\nRun: python %s filename' % argv[0])
         exit()
     try:
-        Zip2Mail(attach)
+        sendmail(attach)
     except KeyboardInterrupt:
         print '\n'
 
