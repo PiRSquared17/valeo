@@ -6,8 +6,8 @@ from getpass import getpass
 from sys import exit, argv
 from socket import gaierror
 
-ftpserver = 'ftp.consisa.inf.br'
-ftpuser = '92200199'
+ftpserver = ''
+ftpuser = ''
 ftppw = getpass('FTP password: ')
 print 'Connecting to %s...\n' % ftpserver
 try:
