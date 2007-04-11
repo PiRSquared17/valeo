@@ -6,7 +6,7 @@ quickies
 	 pen-drive. (Windows OS only).
 * byte-count.py is a simple count of bytes of any archive.
 * closure.py is a implementation of closure concept. (1)
-* Colorized_DOS_Windows.py is a quick hack :-) to print colorized
+* Colorized_DOS_Windows.py is a pretty hack :-) to print colorized
        caracters in DOS Windows system.
 * diff_text.py is a better implementation of standart python script.
        (\Python25\Tools\Script\diff.py).
