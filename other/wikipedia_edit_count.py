@@ -22,8 +22,8 @@ for line in getSite.split('\n'):
         li2 = line.replace('DELETED_EDITS ', '')
 
 x10 = (int(li1)+int(li2))
-xx10 = (u'total de\n%s edições (edições válidas:%s + eliminadas:%s)' % (x10, li1, li2))
+xx10 = (u'total: %s edits \n(valide edits:%s + deleted:%s)' % (x10, li1, li2))
 
-print ((u'%s na %s tem um %s') % (user, family, xx10))
+print ((u'%s in %s have %s edits') % (user, family, xx10))
 end=time.time()
-print (u'página gerada em %.3f seg' % (end-start))
+print (u'code generate %.3f s' % (end-start))
