@@ -14,10 +14,10 @@ def printColorizedInWindows(text, color):
     for i in range(0, len(color)):
         ctypes.windll.kernel32.SetConsoleTextAttribute(std_out_handle, color[i])
         sys.stdout.write(text)
-    # cor de fundo é 7
+    # background color is 7
     ctypes.windll.kernel32.SetConsoleTextAttribute(std_out_handle, 7)
     
 if __name__ == "__main__":
-    text = u"Imprimindo texto colorido no MS-DOS"
-    color = [6] # número da cor do texto
+    text = u"printing colorized text in MS-DOS"
+    color = [6] # text color is 6
     printColorizedInWindows(text, color)
