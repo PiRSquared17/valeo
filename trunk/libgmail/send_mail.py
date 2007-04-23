@@ -18,7 +18,7 @@ if __name__ == "__main__":
     ga = GmailAccount(name, pw)
     try:
         ga.login()
-    except libgmail.GmailLoginFailure,e:
+    except GmailLoginFailure,e:
         print "\nLogin failed. (%s)" % e.message
         sys.exit(1)
     else:
