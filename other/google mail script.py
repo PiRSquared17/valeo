@@ -29,7 +29,7 @@ def sendmsg(fromg, to, subj):
     body["User-Agent"] = "Google mail script (Python2.5)"
 
     server = SMTP("smtp.gmail.com", 587)
-    #server.set_debuglevel(0)
+    server.set_debuglevel(0)
     
     server.ehlo(fromg)
     server.starttls()
@@ -55,4 +55,4 @@ if __name__ == '__main__':
     try:
         sendmsg(argv[1], argv[2], argv[3])
     except IndexError:
-        print 'run gmail-smtp.py from to subject'
+        print 'run google mail script.py from to subject'
