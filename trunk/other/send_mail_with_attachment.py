@@ -33,6 +33,7 @@ def sendmail(attach):
         writer.addheader('From', mail)
         writer.addheader('To', to)
         writer.addheader('Subject', subj)
+        #writer.addheader('User-Agent', 'valeo mail script (Python/2.5)')
         writer.startmultipartbody('mixed')
         part = writer.nextpart()
         body = part.startbody('text/plain')
