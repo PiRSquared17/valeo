@@ -19,14 +19,15 @@ except ImportError:
 
 
 def sendmsg(fromg, to, subj):
+
     tk = Tk()
     app = EditBoxWindow(tk)
-    body = MIMEText(app.edit(u"Edit this...")
+    body = MIMEText(app.edit("Edit this..."))
     
     fromg = body["From"] = argv[1]
     to = body["To"] = argv[2]
     subj = body["Subject"] = argv[3]
-    body["User-Agent"] = "Google mail script (Python2.5)"
+    body["User-Agent"] = "Google mail script (Python/2.5)"
 
     server = SMTP("smtp.gmail.com", 587)
     server.set_debuglevel(0)
@@ -38,6 +39,7 @@ def sendmsg(fromg, to, subj):
     try:
         passwd = getpass()
         server.login(fromg, passwd)
+        
     except SMTPAuthenticationError, exc:
         print 'Login error: %s' % exc
         exit()
@@ -45,7 +47,6 @@ def sendmsg(fromg, to, subj):
     try:
         # todo: unicode error
         server.sendmail(fromg, to, body.as_string())
-        server.quit()
         print 'Email send ok!'
     except SMTPRecipientsRefused, ex:
         print 'Email send error: %s' % exc
