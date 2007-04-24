@@ -16,6 +16,7 @@ quickies
 * newsreader.py is a script to read news with condensed e-mail header.
 * send_mail_with_attachment.py is script that can send e-mails via SMTP.
 * wikipedia_edit_count.py is a script to count user edits in wikimedia sites. (2)
+* google_mail_script.py is a script to send email from Gmail service with SMTP.
 
 see more:
 (1) http://en.wikipedia.org/wiki/Closure
