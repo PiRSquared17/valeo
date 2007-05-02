@@ -30,7 +30,7 @@ def sendmsg(fromg, to, subj):
     body["User-Agent"] = "Google mail script (Python/2.5)"
 
     server = SMTP("smtp.gmail.com", 587)
-    server.set_debuglevel(0)
+    server.set_debuglevel(1)
     
     server.ehlo(fromg)
     server.starttls()
