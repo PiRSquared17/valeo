@@ -1,0 +1,24 @@
+----------------------------
+quickies
+----------------------------
+
+* backup.py use 7-zip command line to compressed archive and move to
+	 pen-drive. (Windows OS only).
+* byte-count.py is a simple count of bytes of any archive.
+* closure.py is a implementation of closure concept. (1)
+* Colorized_DOS_Windows.py is a pretty hack :-) to print colorized
+       caracters in DOS Windows system.
+* diff_text.py is a better implementation of standart python script.
+       (\Python25\Tools\Script\diff.py).
+* download.py you can do image, text or archive download.
+* ftpclient.py you can do upload or download archives in FTP.
+* gui.py is a part of python wikipediabot software.
+* newsreader.py is a script to read news with condensed e-mail header.
+* send_mail_with_attachment.py is script that can send e-mails via SMTP.
+* wikipedia_edit_count.py is a script to count user edits in wikimedia sites. (2)
+* google_mail_script.py is a script to send email from Gmail service with SMTP.
+* write_windows_registry.py is a script to write in regedit.
+
+see more:
+(1) http://en.wikipedia.org/wiki/Closure
+(2) http://tools.wikimedia.de/~river/cgi-bin/count_edits?user=%s&dbname=%s&machread=1
