@@ -1,0 +1,16 @@
+Source: wallpaper-commons
+Section: python, desktop
+Priority: optional
+Maintainer: Leonardo Gregianin <leogregianin@gmail.com>
+XS-Python-Version: >= 2.4
+Build-Depends: python-all-dev (>= 2.3.5-11), python-imaging (>= 1.1.5-11)
+Standards-Version: 1.0
+
+Package: wallpaper-commons
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python, python-imaging
+XB-Python-Version: ${python:Versions}
+Description: Put "picture of the day" in your Desktop wallpaper from Wikimedia Commons
+ .
+  Author: Leonardo Gregianin <leogregianin@gmail.com>
+  Homepage: http://code.google.com/p/wallpaper-commons/
