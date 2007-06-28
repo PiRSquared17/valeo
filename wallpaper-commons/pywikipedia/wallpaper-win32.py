@@ -27,7 +27,7 @@ def write_gray(filename, text, outfilename):
     size = 0
     while True:
         size +=1
-        FONT = "C:\WINDOWS\Fonts\Vera.ttf"
+        FONT = "C:\WINDOWS\Fonts\Verdana.ttf"
         nextfont = ImageFont.truetype(FONT, size)
         nexttextwidth, nexttextheight = nextfont.getsize(text)
         if nexttextwidth+nexttextheight/3 > write.size[0]: break
