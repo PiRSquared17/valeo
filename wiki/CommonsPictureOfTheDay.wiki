@@ -1,0 +1,64 @@
+#labels Featured
+== Description ==
+Put "picture of the day" in your Desktop wallpaper from [http://commons.wikipedia.org/wiki/Commons:Picture_of_the_day Wikimedia Commons].
+
+Only installer the software, when operating system is started the wallpaper is imported automatically. It isn't necessary to execute daily.
+
+== Motivation ==
+
+Portuguese only:
+Eu precisava de um software que fosse transparente ao usuário leigo, isto é, o usuário só precisaria instalá-lo nada mais e a atualização do papel de parede se atualizaria diariamente sem a necessidade de interferência do usuário.
+
+Outra necessidade era a busca pela imagem. Se fosse buscada uma imagem aleatória pelo [http://images.google.com Google Images] iria aparecer muitos disparetes sem igual, se fosse ao [http://www.flickr.com Flickr] buscar por tags ou imagens aleatórias iria aparecer muitas imagens pessoais.
+
+Então fui ao *Wikimedia Commons* pela imagem destacada do dia, imagem esta escolhida pela comunidade de usuários do Commons por votação e, quase nunca (99%), é uma imagem sem motivos para estar alí como imagem em destaque.
+
+== Dependencies ==
+
+  * Windows:
+    * [http://www.python.org/ftp/python/2.5.1/python-2.5.1.msi Python 2.5]
+    * [http://effbot.org/downloads/PIL-1.1.6.win32-py2.5.exe Python Imaging Library]
+    * [http://downloads.sourceforge.net/pywin32/pywin32-210.win32-py2.5.exe Python Win32 API]
+
+  * Others distribuitions:
+    * Python >= 2.4 (already installed)
+    * Debian / Ubuntu: *apt-get install python-imaging*
+    * Red Hat / Fedora: *yum install python-imaging*
+    * Gentoo: *emerge imaging*
+
+== Instalation ==
+  
+  * Windows:
+    # First install all dependencies,
+    # and run "python setup_win32.py install"
+
+  * Linux:
+    # First install "Python Imaging Library",
+    # and run: "python setup.py install"
+
+== Features ==
+
+  # Very pretty images from [http://commons.wikimedia.org Wikimedia Commons].
+  # Copyright credits inside image.
+  # Easy installer.
+  # Transparency executable.
+  # Windows: Registry entry, automatic executable daily.
+  # Linux: GConf entry, automatic executable daily.
+
+== Todo ==
+  * Nautilus startup
+  * Check if internet is enable
+
+== Limitations ==
+  * Windows not support SVG files
+
+== Related softwares ==
+  * [http://code.google.com/p/flickr-film-canistr/ Flickr Film Canistr] for Windows.
+  * [http://wallpapoz.akbarhome.com/index.html Wallpapoz] for Linux based GNOME.
+
+== License ==
+"CommonsPictureOfTheDay" is distributed under the terms of the MIT license.
+
+Parts of this software use:
+  * "Python Wikipedia Bot" is also distributed under the terms of the MIT license.
+  * "BeautifulSoup.py" is distributed under the terms of the PSF license.
