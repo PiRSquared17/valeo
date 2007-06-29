@@ -27,7 +27,11 @@ def write_gray(filename, text, outfilename):
     size = 0
     while True:
         size +=1
-        FONT = "/usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf" #ubuntu
+        try:
+            FONT = "/usr/share/fonts/truetype/ttf-bitstream-vera/Verdana.ttf" #ubuntu
+        except:
+            print "Please, report this problem here: http://code.google.com/p/valeo/issues/entry"
+            sys.exit()
         nextfont = ImageFont.truetype(FONT, size)
         nexttextwidth, nexttextheight = nextfont.getsize(text)
         if nexttextwidth+nexttextheight/3 > write.size[0]: break
@@ -38,7 +42,7 @@ def write_gray(filename, text, outfilename):
     img.save(outfilename)
     
 def set_wallpaper():
-    bg = './wallpaper-commons/pywikipedia/Picture_of_the_day.png'
+    bg = '/usr/lib/python2.5/site-packages/pywikipedia/Picture_of_the_day.png'
     option = 'scaled'
     gconf.client_get_default().get_string('/desktop/gnome/background/picture_options', option) 
     gconf.client_get_default().get_string('/desktop/gnome/background/picture_filename', bg)
