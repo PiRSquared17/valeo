@@ -36,6 +36,15 @@ Então fui ao *Wikimedia Commons* pela imagem destacada do dia, imagem esta esco
     # First install "Python Imaging Library",
     # and run: "python2.5 setup.py install"
 
+== Uninstallation ==
+
+  * Windows:
+    # Delete CommonsPictureOfTheDay folder:  C:/Python2.5/site-packages/CommonsPictureOfTheDay
+    # Delete Registry value: Start -> Run -> regedit -> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run CommonsPictureOfTheDay
+
+  * Linux:
+    # Delete CommonsPictureOfTheDay folder
+
 == Features ==
 
   # Very pretty images from [http://commons.wikimedia.org Wikimedia Commons].
@@ -47,7 +56,6 @@ Então fui ao *Wikimedia Commons* pela imagem destacada do dia, imagem esta esco
 
 == Todo ==
   * Nautilus startup
-  * Check if internet is enable
 
 == Limitations ==
   * Windows not support SVG files
