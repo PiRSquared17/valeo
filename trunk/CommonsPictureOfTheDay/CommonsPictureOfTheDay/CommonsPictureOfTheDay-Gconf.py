@@ -30,6 +30,8 @@ def write_gray(filename, text, outfilename):
         try:
             FONT = "/usr/share/fonts/truetype/ttf-bitstream-vera/Verdana.ttf" #ubuntu
         except:
+            FONT = "/usr/share/fonts/bitstream-vera/Vera.ttf" # fedora
+        finally:
             print "Please, report this problem here: http://code.google.com/p/valeo/issues/entry"
             sys.exit()
         nextfont = ImageFont.truetype(FONT, size)
