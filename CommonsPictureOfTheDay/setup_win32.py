@@ -27,17 +27,17 @@ setup(
           'Programming Language :: Python',
           ],
     
-    packages = ['pywikipedia', 'pywikipedia.families', 'pywikipedia.userinterfaces'],
-    data_files=[('\\Lib\\site-packages\\pywikipedia', ['pywikipedia\\CommonsPictureOfTheDay-Win32.pyw'])]
+    packages = ['CommonsPictureOfTheDay', 'CommonsPictureOfTheDay.families', 'CommonsPictureOfTheDay.userinterfaces'],
+    data_files=[('\\Lib\\site-packages\\CommonsPictureOfTheDay', ['CommonsPictureOfTheDay\\CommonsPictureOfTheDay-Win32.pyw'])]
     )    
 
 ### Install CommonsPictureOfTheDay in registry
-os.system('copy pywikipedia\\CommonsPictureOfTheDay-Win32.pyw C:\\Python25\\Lib\\site-packages\\pywikipedia\\')
+os.system('copy CommonsPictureOfTheDay\\CommonsPictureOfTheDay-Win32.pyw C:\\Python25\\Lib\\site-packages\\CommonsPictureOfTheDay\\')
 Reg = ConnectRegistry(None, HKEY_LOCAL_MACHINE)
 Key = OpenKey(Reg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
 try:
-    SetValueEx(Key,"CommonsPictureOfTheDay", 0, REG_SZ, r"C:\Python25\Lib\site-packages\pywikipedia\CommonsPictureOfTheDay-Win32.pyw")
-    print "\nCommons Picture Of The Day installed sucessful!"
+    SetValueEx(Key,"CommonsPictureOfTheDay", 0, REG_SZ, r"C:\Python25\Lib\site-packages\CommonsPictureOfTheDay\CommonsPictureOfTheDay-Win32.pyw")
+    print "\nCommonsPictureOfTheDay installed sucessful!"
 except EnvironmentError:
     print "Encountered problems writing into the Registry..."
 CloseKey(Key)

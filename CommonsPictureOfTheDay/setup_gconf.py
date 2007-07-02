@@ -23,7 +23,7 @@ setup(
           'Programming Language :: Python',
           ],
     
-    packages = ['pywikipedia', 'pywikipedia.families', 'pywikipedia.userinterfaces'],
+    packages = ['CommonsPictureOfTheDay', 'CommonsPictureOfTheDay.families', 'CommonsPictureOfTheDay.userinterfaces'],
     )
 
 ## python setup.py install
@@ -32,4 +32,3 @@ setup(
 # create nautilus-python entry:
 #   desktop -> preferences -> sessions ->
 #      startup programs -> add ->
-#          /usr/lib/python2.5/site-packages/CommonsPictureOfTheDay/pywikipedia/CommonsPictureOfTheDay-Gconf.py
