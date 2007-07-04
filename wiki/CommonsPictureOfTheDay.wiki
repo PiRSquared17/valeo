@@ -1,5 +1,5 @@
 #labels Featured
-*[http://code.google.com/p/valeo/downloads/list Download here]*
+||*[http://code.google.com/p/valeo/downloads/list Download here]*||
 
 == Description ==
 Put "picture of the day" in your Desktop wallpaper from [http://commons.wikipedia.org/wiki/Commons:Picture_of_the_day Wikimedia Commons].
@@ -72,4 +72,3 @@ Então fui ao *Wikimedia Commons* pela imagem destacada do dia, imagem esta esco
 Parts of this software use:
   * "Python Wikipedia Bot" is also distributed under the terms of the MIT license.
   * "BeautifulSoup.py" is distributed under the terms of the PSF license.
-
