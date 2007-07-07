@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+######################################################
+##                                                  ##
+##             MOVE TO PYGTK                        ##
+##                                                  ##
+######################################################
+
+
 import urllib
 import time
 tm = time.strftime('%d/%m/%Y', time.localtime())
@@ -44,6 +51,8 @@ if __name__ == '__main__':
     try:
         dolar()
     except:
-        try: dolar()
+        time.sleep(30)
+        try:
+            dolar()
         except:
             print u'\nConexão com a internet está com problemas,\ntente daqui alguns segundos.\n'
