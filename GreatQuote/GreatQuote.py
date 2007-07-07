@@ -29,5 +29,7 @@
 == ENGLISH QUOTES ==
 "The highest morality may prove also to be the highest wisdom when the half-told story comes to be finished." - Arthur Conan Doyle
 "Imagination is not an empirical or superadded power of consciousness, it is the whole of consciousness as it realizes its freedom."  - Jean Paul Sartre
+"Inside us there is something that has no name, that something is what we are." - José Saramago
+
 
 '''
