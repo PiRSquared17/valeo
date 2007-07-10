@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+'''
+todo:
+gravar valores (pickle, shelve, sqlite, ...)
+obter valores reais para o gráfico
+
+'''
+
 import webbrowser, codecs
 import urllib, time, httplib
 try:
