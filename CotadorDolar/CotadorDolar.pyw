@@ -20,7 +20,7 @@ class CotadorDolar:
     copyright = 'Cotador de Dólar é software livre; você pode redistribuí-lo\n e/ou modificá-lo sobre os termos da Licença MIT.'
     autor = 'Leonardo Gregianin'
     ano = '2007'
-    projeto = 'http://code.google.com/p/valeo/wiki/CotadorDolar'
+    siteprojeto = 'http://code.google.com/p/valeo/wiki/CotadorDolar'
 
     tm = time.strftime('%d/%m/%Y', time.localtime())
     seg = time.strftime("%H", time.localtime())
@@ -129,6 +129,9 @@ class CotadorDolar:
     def action(self):
         webbrowser.open('http://www.bcb.gov.br/htms/infecon/taxas/taxas.htm')
 
+    def projeto(self):
+        webbrowser.open('http://code.google.com/p/valeo/wiki/CotadorDolar')
+
     def netStatus(self):
         try:
             urllib.urlopen('http://www.bcb.gov.br')
@@ -174,7 +177,7 @@ class CotadorDolar:
         text2.pack()
         creditos = ('\n%s\n\n%s, %s\n' % (self.copyright, self.autor, self.ano))
         Label(text, text=creditos, font=('Verdana, 10'), width=60).pack(side=LEFT)
-        Button(text2, text=self.projeto, font=('Verdana, 10'), command=self.Site).pack(side=LEFT)
+        Button(text2, text=self.siteprojeto, font=('Verdana, 10'), command=self.projeto).pack(side=LEFT)
 
     def Site(self):
         webbrowser.open("%s" % self.site)
