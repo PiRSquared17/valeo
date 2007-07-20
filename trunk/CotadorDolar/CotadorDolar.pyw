@@ -13,7 +13,7 @@ try:
     from Tkinter import *
     import tkFileDialog
 except ImportError:
-    print ("Tkinter não está instalado em seu sistema, por favor obtenha o pacote python-tkinter.")
+    print "Tkinter não está instalado em seu sistema, por favor obtenha o pacote python-tkinter."
     
 class CotadorDolar:
 
