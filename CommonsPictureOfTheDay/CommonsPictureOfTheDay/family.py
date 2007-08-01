@@ -1,7 +1,7 @@
 # -*- coding: utf-8  -*-
-import config, urllib
+import config, urllib, re
 
-__version__='$Id: family.py,v 1.162 2006/04/28 03:23:01 yurochek Exp $'
+__version__='$Id: family.py 3912 2007-07-27 13:14:30Z wikipedian $'
 
 # Parent class for all wiki families
 
@@ -77,6 +77,7 @@ class Family:
                 'kv': u'Медиа',
                 'lt': u'Medija',
                 'mk': u'Медија',
+                'ml': u'മീഡിയ',
                 'mzn': u'مدیا',
                 'new': u'माध्यम',
                 'nn': u'Filpeikar',
@@ -165,6 +166,7 @@ class Family:
                 'li': u'Speciaal',
                 'lt': u'Specialus',
                 'mk': u'Специјални',
+                'ml': u'പ്രത്യേകം',
                 'mr': u'विशेष',
                 'ms': u'Istimewa',
                 'mzn': u'ویژه',
@@ -281,6 +283,7 @@ class Family:
                 'li': u'Euverlèk',
                 'lt': u'Aptarimas',
                 'lv': u'Diskusija',
+                'ml': u'സംവാദം',
                 'mk': u'Разговор',
                 'mr': u'चर्चा',
                 'ms': u'Perbualan',
@@ -328,6 +331,7 @@ class Family:
                 'vls': u'Discuusje',
                 'vo': u'Bespik',
                 'wa': u'Copene',
+                'wo': u'Discuter',
                 'xal': u'Ухалвр',
                 'yi': u'רעדן',
                 'zea': u'Overleg',
@@ -401,6 +405,7 @@ class Family:
                 'lt': u'Naudotojas',
                 'lv': u'Lietotājs',
                 'mk': u'Корисник',
+                'ml': u'ഉപയോക്താവ്',
                 'mr': u'सदस्य',
                 'ms': u'Pengguna',
                 'mzn': u'کاربر',
@@ -447,6 +452,7 @@ class Family:
                 'vls': u'Gebruker',
                 'vo': u'Geban',
                 'wa': u'Uzeu',
+                'wo': u'Utilisateur',
                 'xal': u'Орлцач',
                 'yi': u'באַניצער',
                 'zea': u'Gebruker',
@@ -521,6 +527,7 @@ class Family:
                 'lt': u'Naudotojo aptarimas',
                 'lv': u'Lietotāja diskusija',
                 'mk': u'Разговор со корисник',
+                'ml': u'ഉപയോക്താവിന്റെ സംവാദം',
                 'mr': u'सदस्य चर्चा',
                 'ms': u'Perbualan Pengguna',
                 'mzn': u'بحث کاربر',
@@ -536,7 +543,7 @@ class Family:
                 'oc': u'Discussion Utilizaire',
                 'os': u'Архайæджы дискусси',
                 'pa': u'ਮੈਂਬਰ ਚਰਚਾ',
-                'pl': u'Dyskusja Wikipedysty',
+                'pl': u'Dyskusja wikipedysty',
                 'pms':u'Ciaciarade',
                 'pt': u'Usuário Discussão',
                 'qu': u'Usuario Discusión',
@@ -567,6 +574,7 @@ class Family:
                 'vls': u'Discuusje gebruker',
                 'vo': u'Gebanibespik',
                 'wa': u'Uzeu copene',
+                'wo': u'Discussion Utilisateur',
                 'xal': u'Орлцачна тускар ухалвр',
                 'yi': u'באַניצער רעדן',
                 'zea': u'Overleg gebruker',
@@ -646,6 +654,7 @@ class Family:
                 'lt': u'Vaizdas',
                 'lv': u'Attēls',
                 'mk': u'Слика',
+                'ml': u'ചിത്രം',
                 'mr': u'चित्र',
                 'ms': u'Imej',
                 'mzn': u'تصویر',
@@ -765,6 +774,7 @@ class Family:
                 'lt': u'Vaizdo aptarimas',
                 'lv': u'Attēla diskusija',
                 'mk': u'Разговор за слика',
+                'ml': u'ചിത്രത്തിന്റെ സംവാദം',
                 'mr': u'चित्र चर्चा',
                 'ms': u'Imej Perbualan',
                 'mzn': u'بحث تصویر',
@@ -811,6 +821,7 @@ class Family:
                 'vls': u'Discuusje ofbeeldienge',
                 'vo': u'Magodibespik',
                 'wa': u'Imådje copene',
+                'wo': u'Discussion Image',
                 'xal': u'Зургин тускар ухалвр',
                 'yi': u'בילד רעדן',
                 'zea': u'Overleg plaetje',
@@ -833,6 +844,7 @@ class Family:
                 'kn': u'ಮೀಡಿಯವಿಕಿ',
                 'ksh':u'MediaWiki',
                 'mk': u'МедијаВики',
+                'ml': u'മീഡിയവിക്കി',
                 'mzn': u'مدیاویکی',
                 'new': u'मिडियाविकि',
                 'pa': u'ਮੀਡੀਆਵਿਕਿ',
@@ -915,6 +927,7 @@ class Family:
                 'lt': u'MediaWiki aptarimas',
                 'lv': u'MediaWiki diskusija',
                 'mk': u'Разговор за МедијаВики',
+                'ml': u'മീഡിയവിക്കി സംവാദം',
                 'ms': u'MediaWiki Perbualan',
                 'mzn': u'بحث مدیاویکی',
                 'nah': u'MediaWiki Discusión',
@@ -958,6 +971,7 @@ class Family:
                 'vls': u'Discuusje MediaWiki',
                 'vo': u'Bespik dö sitanuns',
                 'wa': u'MediaWiki copene',
+                'wo': u'Discussion MediaWiki',
                 'xal': u'MediaWiki тускар ухалвр',
                 'yi': u'מעדיעװיקי רעדן',
                 'zea': u'Overleg MediaWiki',
@@ -1018,7 +1032,7 @@ class Family:
                 'is': u'Snið',
                 'jv': u'Cithakan',
                 'ka': u'თარგი',
-                'kab': u'Talγa',
+                'kab': u'Talɣa',
                 'kk': u'Үлгі',
                 'kn': u'ಟೆಂಪ್ಲೇಟು',
                 'ko': u'틀',
@@ -1030,6 +1044,7 @@ class Family:
                 'lt': u'Šablonas',
                 'lv': u'Veidne',
                 'mk': u'Шаблон',
+                'ml': u'ഫലകം',
                 'mr': u'साचा',
                 'ms': u'Templat',
                 'mzn': u'الگو',
@@ -1070,6 +1085,7 @@ class Family:
                 'vls': u'Patrôon',
                 'vo': u'Samafomot',
                 'wa': u'Modele',
+                'wo': u'Modèle',
                 'xal': u'Зура',
                 'yi': u'מוסטער',
                 'zea': u'Sjabloon',
@@ -1131,7 +1147,7 @@ class Family:
                 'ja': u'Template‐ノート',
                 'jv': u'Dhiskusi Cithakan',
                 'ka': u'თარგი განხილვა',
-                'kab': u'Amyannan n talγa',
+                'kab': u'Amyannan n talɣa',
                 'kk': u'Үлгі талқылауы',
                 'kn': u'ಟೆಂಪ್ಲೇಟು ಚರ್ಚೆ',
                 'ko': u'틀토론',
@@ -1143,6 +1159,7 @@ class Family:
                 'lt': u'Šablono aptarimas',
                 'lv': u'Veidnes diskusija',
                 'mk': u'Разговор за шаблон',
+                'ml': u'ഫലകത്തിന്റെ സംവാദം',
                 'mr': u'साचा चर्चा',
                 'ms': u'Perbualan Templat',
                 'mzn': u'بحث الگو',
@@ -1185,6 +1202,7 @@ class Family:
                 'vls': u'Discuusje patrôon',
                 'vo': u'Samafomotibespik',
                 'wa': u'Modele copene',
+                'wo': u'Discussion Modèle',
                 'xal': u'Зуран тускар ухалвр',
                 'yi': u'מוסטער רעדן',
                 'zea': u'Overleg sjabloon',
@@ -1256,6 +1274,7 @@ class Family:
                 'lt': u'Pagalba',
                 'lv': u'Palīdzība',
                 'mk': u'Помош',
+                'ml': u'സഹായം',
                 'ms': u'Bantuan',
                 'mzn': u'راهنما',
                 'nah': u'Ayuda',
@@ -1299,6 +1318,7 @@ class Family:
                 'vls': u'Ulpe',
                 'vo': u'Yuf',
                 'wa': u'Aidance',
+                'wo': u'Aide',
                 'xal': u'Цəəлһлһн',
                 'yi': u'הילף',
                 'zea': u'Ulpe',
@@ -1371,6 +1391,7 @@ class Family:
                 'lt': u'Pagalbos aptarimas',
                 'lv': u'Palīdzības diskusija',
                 'mk': u'Разговор за помош',
+                'ml': u'സഹായത്തിന്റെ സംവാദം',
                 'ms': u'Perbualan Bantuan',
                 'mzn': u'بحث راهنما',
                 'nah': u'Ayuda Discusión',
@@ -1415,6 +1436,7 @@ class Family:
                 'vls': u'Discuusje ulpe',
                 'vo': u'Yufibespik',
                 'wa': u'Aidance copene',
+                'wo': u'Discussion Aide',
                 'xal': u'Цəəлһлһин тускар ухалвр',
                 'yi': u'הילף רעדן',
                 'zea': u'Overleg ulpe',
@@ -1479,21 +1501,22 @@ class Family:
                 'kk': u'Санат',
                 'kn': u'ವರ್ಗ',
                 'ko': u'분류',
-                'ksh':u'Saachjrupp',
+                'ksh':[u'Saachjrupp', u'Saachjropp'],
                 'ku': u'Kategorî',
                 'kv': u'Категория',
                 'la': u'Categoria',
-                'li': u'Categorie',
+                'li': [u'Categorie', u'Kategorie'],
                 'lt': u'Kategorija',
                 'lv': u'Kategorija',
                 'mk': u'Категорија',
+                'ml': u'വിഭാഗം',
                 'mr': u'वर्ग',
                 'ms': u'Kategori',
                 'mzn': u'رده',
                 'nah': u'Categoría',
                 'nap': u'Categoria',
                 'nds': u'Kategorie',
-                'nds-nl': u'Kattegerie',
+                'nds-nl': [u'Kattegerie', u'Categorie'],
                 'new': u'पुचः',
                 'nl': u'Categorie',
                 'nn': u'Kategori',
@@ -1531,6 +1554,7 @@ class Family:
                 'vls': u'Categorie',
                 'vo': u'Klad',
                 'wa': u'Categoreye',
+                'wo': u'Catégorie',
                 'xal': u'Янз',
                 'yi': u'קאַטעגאָריע',
                 'zea': u'Categorie',
@@ -1600,17 +1624,18 @@ class Family:
                 'ku': u'Kategorî nîqaş',
                 'kv': u'Обсуждение категории',
                 'la': u'Disputatio Categoriae',
-                'li': u'Euverlèk categorie',
+                'li': [u'Euverlèk categorie', u'Euverlèk kategorie'],
                 'lt': u'Kategorijos aptarimas',
                 'lv': u'Kategorijas diskusija',
                 'mk': u'Разговор за категорија',
+                'ml': u'വിഭാഗത്തിന്റെ സംവാദം',
                 'mr': u'वर्ग चर्चा',
                 'ms': u'Perbualan Kategori',
                 'mzn': u'بحث رده',
                 'nah': u'Categoría Discusión',
                 'nap': u'Discussioni categoria',
                 'nds': u'Kategorie Diskuschoon',
-                'nds-nl': u'Overleg kattegerie',
+                'nds-nl': [u'Overleg kattegerie', 'Overleg categorie'],
                 'new': u'पुचः खँलाबँला',
                 'nl': u'Overleg categorie',
                 'nn': u'Kategoridiskusjon',
@@ -1636,7 +1661,6 @@ class Family:
                 'te': u'వర్గం చర్చ',
                 'tg': u'Баҳси гурӯҳ',
                 'th': u'คุยเรื่องหมวดหมู่',
-                'tlh': u"Segh ja'chuq",
                 'tr': u'Kategori tartışma',
                 'tt': u'Törkem bäxäse',
                 'ty': u'Discussion Catégorie',
@@ -1649,6 +1673,7 @@ class Family:
                 'vls': u'Discuusje categorie',
                 'vo': u'Kladibespik',
                 'wa': u'Categoreye copene',
+                'wo': u'Discussion Catégorie',
                 'xal': u'Янзин тускар ухалвр',
                 'yi': u'קאַטעגאָריע רעדן',
                 'zea': u'Overleg categorie',
@@ -1672,6 +1697,11 @@ class Family:
            'pt': u'[a-záâàãéêíóôõúüç]*',
            'ru': u'[a-zа-я]*',
         }
+
+        # Wikimedia wikis all use "bodyContent" as the id of the <div>
+        # element that contains the actual page content; change this for
+        # wikis that use something else (e.g., mozilla family)
+        self.content_id = "bodyContent"
         
         # A dictionary where keys are family codes that can be used in
         # inter-family interwiki links. Values are not used yet.
@@ -2179,7 +2209,7 @@ class Family:
         else:
             raise KeyError('ERROR: linktrail in language %s unknown' % code)  
 
-    def namespace(self, code, ns_number, fallback = '_default'):
+    def namespace(self, code, ns_number, fallback = '_default', all = False):
         if not self.isDefinedNS(ns_number):
             raise KeyError('ERROR: Unknown namespace %d' % ns_number)  
         elif self.isNsI18N(ns_number, code):
@@ -2188,11 +2218,17 @@ class Family:
             v = self.namespaces[ns_number][fallback]
         else:
             raise KeyError('ERROR: title for namespace %d in language %s unknown' % (ns_number, code))  
-
-        if type(v) == type([]):
-            return v[0]
-        else:
-            return v
+	
+	if all:
+		if type(v) == type([]):
+		    return tuple(v)
+		else:
+		    return (v, )
+	else:
+	        if type(v) == type([]):
+        	    return v[0]
+	        else:
+        	    return v
 
     def isDefinedNS(self, ns_number):
         """Return True if the namespace has been defined in this family.
@@ -2296,7 +2332,8 @@ class Family:
         return namespaces
 
     # Redirect code can be translated.
-
+    # Note that redirect codes are case-insensitive, so it is enough
+    # to enter the code in lowercase here.
     redirect = {
         'ar': [u'تحويل'],
         'be': [u'перанакіраваньне'],
@@ -2306,16 +2343,16 @@ class Family:
         'cy': [u'ail-cyfeirio'],
         'et': [u'suuna'],
         'eu': [u'bidali'],
-        'fi': [u'uudelleenohjaus', u'UUDELLEENOHJAUS'],
+        'fi': [u'uudelleenohjaus', u'ohjaus', u'OHJAUS'],
         'ga': [u'athsheoladh'],
         'he': [u'הפניה'],
-        'id': [u'redirected'],
+        'id': [u'redirected', u'alih'],
         'is': [u'tilvísun'],
         'ka': [u'გადამისამართება'],
         'nn': [u'omdiriger'],
-        'ru': [u'перенаправление', u'перенапр', u'ПЕРЕНАПРАВЛЕНИЕ'],
+        'ru': [u'перенаправление', u'перенапр'],
         'sk': [u'presmeruj'],
-        'sr': [u'преусмери', u'Преусмери'],
+        'sr': [u'преусмери',u'Преусмери'], # Using lowercase only doesn't work?
         'tt': [u'yünältü'],
         'yi': [u'ווייטערפירן']
     }
@@ -2373,6 +2410,8 @@ class Family:
 
     def querypath(self, code):
         return '/w/query.php'
+    def apipath(self, code):
+        return '/w/api.php'
 
     def nicepath(self, code):
         return '/wiki/'
@@ -2384,7 +2423,17 @@ class Family:
     # Which version of MediaWiki is used?
 
     def version(self, code):
+        # Don't use this, use versionnumber() instead. This only exists
+        # to not break family files.
         return "1.5"
+
+    def versionnumber(self, code):
+        R = re.compile(r"(\d+).(\d+)")
+        M = R.search(self.version(code))
+        if not M:
+            # Version string malformatted; assume it should have been 1.10
+            return 10
+        return 1000 * int(M.group(1)) + int(M.group(2)) - 1000
 
     def page_action_address(self, code, name, action):
         return '%s?title=%s&action=%s' % (self.path(code), name, action)
@@ -2479,6 +2528,8 @@ class Family:
 
     def query_address(self, code):
         return '%s?' % self.querypath(code)
+    def api_address(self, code):
+        return '%s?' % self.apipath(code)
 
     def allpages_address(self, code, start, namespace = 0):
         if self.version(code)=="1.2":
@@ -2512,6 +2563,9 @@ class Family:
     def lonelypages_address(self, code, limit=500):
         return "%s?title=%s:Lonelypages&limit=%d" % (self.path(code), self.special_namespace_url(code), limit)
 
+    def unwatchedpages_address(self, code, limit=500):
+        return "%s?title=%s:Unwatchedpages&limit=%d" % (self.path(code), self.special_namespace_url(code), limit)
+
     def uncategorizedcategories_address(self, code, limit=500):
         return "%s?title=%s:Uncategorizedcategories&limit=%d" % (self.path(code), self.special_namespace_url(code), limit)
     
@@ -2520,6 +2574,9 @@ class Family:
     
     def unusedcategories_address(self, code, limit=500):
         return "%s?title=%s:Unusedcategories&limit=%d" % (self.path(code), self.special_namespace_url(code), limit)
+
+    def withoutinterwiki_address(self, code, limit=500):
+        return "%s?title=%s:Withoutinterwiki&limit=%d" % (self.path(code), self.special_namespace_url(code), limit)
 
     def code2encoding(self, code):
         """Return the encoding for a specific language wiki"""
@@ -2540,3 +2597,13 @@ class Family:
         """Change this to some regular expression that shows the page we
         found is an existing page, in case the normal regexp does not work."""
         return None
+
+    def sandboxpage(self, code):
+        """Give the title of a sandbox page for a given language. It should be
+        a page with no edit restrictions, that is, if we can edit any page, we
+        should be able to edit this page."""
+        return "%s:Sandbox"%self.namespace(code,4)
+
+    def has_query_api(self,code):
+        """Is query.php installed in the wiki?"""
+        return False
