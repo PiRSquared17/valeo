@@ -15,7 +15,7 @@ For fastest processing, XmlDump uses the cElementTree library if available
 http://www.effbot.org/ for earlier versions). If not found, it falls back
 to the older method using regular expressions.
 """
-__version__='$Id$'
+__version__='$Id: xmlreader.py 3726 2007-06-20 13:28:05Z wikipedian $'
 
 import threading, time
 import xml.sax
@@ -151,10 +151,10 @@ class MediaWikiXmlHandler(xml.sax.handler.ContentHandler):
             self.inContributorTag = False
         elif name == 'restrictions':
             self.editRestriction, self.moveRestriction = parseRestrictions(self.restrictions)
-            if self.editRestriction:
-                wikipedia.output(u'DBG: Edit restriction: %s' % self.editRestriction)
-            if self.moveRestriction:
-                wikipedia.output(u'DBG: Move restriction: %s' % self.moveRestriction)
+            #if self.editRestriction:
+                #wikipedia.output(u'DBG: Edit restriction: %s' % self.editRestriction)
+            #if self.moveRestriction:
+                #wikipedia.output(u'DBG: Move restriction: %s' % self.moveRestriction)
         elif name == 'revision':
             # All done for this.
             text = self.text

@@ -26,6 +26,30 @@ Command line options:
 #
 # Distributed under the terms of the MIT license.
 
+##THIS MODULE IS DEPRECATED AND HAS BEEN REPLACED BY NEW FUNCTIONALITY IN
+##WIKIPEDIA.PY.  It is being retained solely for compatibility in case any
+##custom-written bots rely upon it.  Bot authors should replace any uses
+##of this module as follows:
+##
+##    OLD:    mediawiki_messages.get(key, site)
+##    NEW:    site.mediawiki_message(key)
+##
+##    OLD:    mediawiki_messages.has(key, site)
+##    NEW:    site.has_mediawiki_message(key)
+##
+##    OLD:    mediawiki_messages.makepath(path)
+##    NEW:    wikipedia.makepath(path)
+##
+##########################################################################
+
+import warnings
+warnings.warn(
+"""The mediawiki_messages module is deprecated and no longer
+maintained; see the source code for new methods to replace
+calls to this module.""",
+            DeprecationWarning, stacklevel=2)
+
+
 import wikipedia
 import re, sys, pickle
 import os.path
@@ -34,7 +58,7 @@ import codecs
 import urllib
 from BeautifulSoup import *
 
-__version__='$Id: mediawiki_messages.py,v 1.54 2007/06/04 10:20:17 a_engels Exp $'
+__version__='$Id: mediawiki_messages.py 3731 2007-06-20 14:42:55Z russblau $'
 
 loaded = {}
 
@@ -67,6 +91,13 @@ def get(key, site = None, allowreload = True):
         return get(key, site = site, allowreload = False)
     else:
         raise KeyError('MediaWiki Key %s not found' % key)
+
+def has(key, site = None, allowreload = True):
+    try:
+        get(key, site, allowreload)
+        return True
+    except KeyError:
+        return False
 
 def makepath(path):
     """ creates missing directories for the given path and
@@ -105,27 +136,33 @@ def refresh_messages(site = None):
     mw_url = site.path() + "?title=" + quotedMwNs + ":"
     altmw_url = site.path() + "/" + quotedMwNs + ":"
     nicemw_url = site.nice_get_address(quotedMwNs + ":")
+    shortmw_url = "/" + quotedMwNs + ":"
     ismediawiki = lambda url:url and (url.startswith(mw_url)
                                       or url.startswith(altmw_url)
-                                      or url.startswith(nicemw_url))
+                                      or url.startswith(nicemw_url)
+                                      or url.startswith(shortmw_url))
     # we will save the found key:value pairs here
     dictionary = {}
 
-    for keytag in soup('a', href=ismediawiki):
-        # Key strings only contain ASCII characters, so we can save them as
-        # strs
-        key = str(keytag.find(text=True))
-        keyrow = keytag.parent.parent
-        if keyrow['class'] == "orig":
-            valrow = keyrow.findNextSibling('tr')
-            assert valrow['class'] == "new"
-            value = unicode(valrow.td.string).strip()
-        elif keyrow['class'] == 'def':
-            value = unicode(keyrow('td')[1].string).strip()
-        else:
-            raise AssertionError("Unknown tr class value: %s" % keyrow['class'])
-        dictionary[key] = value
-        
+    try:
+        for keytag in soup('a', href=ismediawiki):
+            # Key strings only contain ASCII characters, so we can save them as
+            # strs
+            key = str(keytag.find(text=True))
+            keyrow = keytag.parent.parent
+            if keyrow['class'] == "orig":
+                valrow = keyrow.findNextSibling('tr')
+                assert valrow['class'] == "new"
+                value = unicode(valrow.td.string).strip()
+            elif keyrow['class'] == 'def':
+                value = unicode(keyrow('td')[1].string).strip()
+            else:
+                raise AssertionError("Unknown tr class value: %s" % keyrow['class'])
+            dictionary[key] = value
+    except Exception, e:
+        wikipedia.debugDump( 'MediaWiki_Msg', site, u'%s: %s while processing URL: %s' % (repr(e), str(e), unicode(path)), allmessages)
+        raise
+
     # Save the dictionary to disk
     # The file is stored in the mediawiki_messages subdir. Create if necessary. 
     if dictionary == {}:

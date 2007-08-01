@@ -4,7 +4,7 @@
 #
 # Distributed under the terms of the MIT license.
 #
-__version__ = '$Id$'
+__version__ = '$Id: config.py 3765 2007-06-23 18:02:25Z valhallasw $'
 
 import os, re, sys
 
@@ -51,6 +51,12 @@ disambiguation_comment = {}
 #    for, for example, wiki usernames
 # 2. You must use the hostname of the site, not its family/language pair
 authenticate = {}
+
+# password_file = ".passwd"
+# A password file with default passwords. For more information, please
+# see LoginManager.readPassword in login.py.
+# By default you are asked for a password on the terminal.
+password_file = None
 
 # Get the names of all known families, and initialize
 # with empty dictionaries
@@ -124,7 +130,24 @@ except:
 ############## EXTERNAL EDITOR SETTINGS ##############
 # The command for the editor you want to use. If set to None, a simple Tkinter
 # editor will be used.
-editor = None
+# On Windows systems, this script tries to determine the default text editor.
+if sys.platform=='win32':
+    try:
+        import _winreg
+        key1 = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, 'Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\OpenWithProgids')
+        progID = _winreg.EnumValue(key1, 1)[0]
+        key2 = _winreg.OpenKey(_winreg.HKEY_CLASSES_ROOT, '%s\shell\open\command' % progID)
+        cmd = _winreg.QueryValueEx(key2, None)[0]
+        editor = cmd.replace('%1', '')
+        # Notepad is even worse than our Tkinter editor. Nobody has
+        # deserved to use it.
+        if editor.lower().endswith('notepad.exe'):
+            editor = None
+    except:
+        #raise
+        editor = None
+else:
+    editor = None
 
 # Warning: DO NOT use an editor which doesn't support Unicode to edit pages!
 # You will BREAK non-ASCII symbols!
@@ -188,6 +211,8 @@ without_interwiki = False
 # disambiguation_comment['wikipedia']['en'] = \
 #    "Robot-assisted disambiguation ([[WP:DPL|you can help!]]): %s"
 
+sort_ignore_case = False
+
 ############## IMAGE RELATED SETTINGS ##############
 # If you set this to True, images will be uploaded to Wikimedia
 # Commons by default.
@@ -248,9 +273,13 @@ db_password = ''
 
 ############## SEARCH ENGINE SETTINGS ##############
 
-# Some scripts allow using the Google Web API. To use this feature, you must
-# install the pyGoogle module from http://pygoogle.sf.net/ and get a Google
-# Web API license key from http://www.google.com/apis/index.html .
+# Some scripts allow querying Google either via the Google Web API, or by
+# just parsing the HTML from the Google website.
+# To use the Google Web API, you must install the pyGoogle module from
+# http://pygoogle.sf.net/ and have a Google Web API license key. Note that
+# Google doesn't give out license keys anymore.
+# If you don't enter a google license key in your user config file, the scripts
+# will just parse the raw HTML code from the website.
 google_key = ''
 
 # Some scripts allow using the Yahoo! Search Web Services. To use this feature,
@@ -349,7 +378,7 @@ for _key in globals().keys():
             print "       Now: ",nt
         del nt,ot
     else:
-        print "WARNING: Configuration variable %s not known. Misspelled?"%_key
+        print "WARNING: Configuration variable %r is defined but unknown. Misspelled?"%_key
 del _key,_tp
 
 # Fix up default console_encoding

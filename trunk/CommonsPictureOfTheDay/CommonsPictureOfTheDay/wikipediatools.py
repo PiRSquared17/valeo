@@ -1,3 +1,4 @@
+﻿__version__ = '$Id: wikipediatools.py 3916 2007-07-27 18:05:19Z valhallasw $'
 import os, sys
 
 def absoluteFilename(*f):
