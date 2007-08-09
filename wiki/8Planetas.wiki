@@ -1,6 +1,0 @@
-#labels Featured
-#8 planetas
-
-O site [http://8planetas.googlepages.com/index.html 8 planetas] é uma pequena brincadeira com Javascript, baseado no site [http://www.worldfirefoxday.com World Firefox Day] com a intenção de aprender um pouco mais sobre a linguagem.
-
-
