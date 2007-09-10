@@ -88,8 +88,8 @@ def workon(page):
         return
     # Show the title of the page where the link was found.
     # Highlight the title in purple.
-    colors = [None] * 6 + [13] * len(page.title()) + [None] * 4
-    wikipedia.output(u"\n\n>>> %s <<<" % page.title(), colors = colors)
+    #colors = [None] * 6 + [13] * len(page.title()) + [None] * 4
+    wikipedia.output(u"\n\n>>> %s <<<" % page.title())#, colors = colors)
     links = page.linkedPages()
     wikipedia.getall(mysite,links)
     for page2 in links:
