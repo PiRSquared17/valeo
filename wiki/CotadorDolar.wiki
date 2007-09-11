@@ -24,4 +24,5 @@ Para qualquer plataforma, somente rode o "CotadorDolar.pyw"
 "CotadorDolar" é distribuído pela licença MIT.
 
 Parte deste software usa:
+  * "Python Wikipedia Bot" é distribuído pela licença MIT.
   * "BeautifulSoup.py" é distribuído pela licença PSF.
