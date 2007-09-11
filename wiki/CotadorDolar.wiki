@@ -14,7 +14,7 @@ Cotação diária do dólar direto do site do Banco Central do Brasil.
     * Pacote "python-tkinter"
 
 == Instalação ==
-Para qualquer plataforma, somente rode o "CotadorDolar.py"
+Para qualquer plataforma, somente rode o "CotadorDolar.pyw"
   
 == A fazer ==
   * Parser do HTML com BeautifulSoup.py
