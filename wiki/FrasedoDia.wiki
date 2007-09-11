@@ -1,0 +1,24 @@
+#labels Featured
+||*[http://code.google.com/p/valeo/downloads/list Download aqui]*||
+
+== Descrição ==
+"Frase do Dia" pega a frase do dia do site http://pt.wikiquote.org (site irmão da wikipedia).
+
+== Dependências ==
+
+  * Windows:
+    * [http://www.python.org/ftp/python/2.5.1/python-2.5.1.msi Python 2.4] ou superior
+
+  * Linux:
+    * Python 2.4 ou superior
+    * Pacote "python-tkinter"
+
+== Instalação ==
+Para qualquer plataforma, somente rode o "FrasedoDia.pyw"
+  
+== Licença ==
+"FrasedoDia" é distribuído pela licença MIT.
+
+Parte deste software usa:
+  * "Python Wikipedia Bot" é distribuído pela licença MIT.
+  * "BeautifulSoup.py" é distribuído pela licença PSF.
