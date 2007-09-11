@@ -41,8 +41,8 @@ class CotadorDolar:
         
         menubar = Menu(root)
         root.config(menu=menubar)
-        root.title('Cotador de Dólar')
-        root.geometry('480x535')
+        root.title('Cotação diária do Dólar')
+        root.geometry('350x250')
 
         filemenu1 = Menu(menubar)
         filemenu2 = Menu(menubar)
@@ -75,57 +75,6 @@ class CotadorDolar:
 
         self.netStatus()
 
-    def Graph(self):
-
-        # fundo
-        graph = Canvas(self.frame5, width=440, height=290, background='white')
-
-        # horizontal borda
-        graph.create_line (50, 250, 400, 250, fill='black')
-        graph.create_line (50, 50, 400, 50, fill='black')
-        
-        # vertical borda
-        graph.create_line (50, 50, 50, 250, fill='black')
-        graph.create_line (400, 50, 400, 250, fill='black')
-
-        # vertical meio
-        graph.create_line (100, 50, 100, 250, fill='gray')
-        graph.create_line (150, 50, 150, 250, fill='gray')
-        graph.create_line (200, 50, 200, 250, fill='gray')
-        graph.create_line (250, 50, 250, 250, fill='gray')
-        graph.create_line (300, 50, 300, 250, fill='gray')
-        graph.create_line (350, 50, 350, 250, fill='gray')
-
-        # horizontal meio
-        graph.create_line (50, 100, 400, 100, fill='gray')
-        graph.create_line (50, 150, 400, 150, fill='gray')
-        graph.create_line (50, 200, 400, 200, fill='gray')
-                
-        # valores
-        graph.create_line (50,  250, 100, 200, fill='red', width='5')
-        graph.create_line (100, 200, 150, 200, fill='red', width='5')
-        graph.create_line (150, 200, 200, 150, fill='red', width='5')
-        graph.create_line (200, 150, 250, 150, fill='red', width='5')
-        graph.create_line (250, 150, 300, 100, fill='red', width='5')
-        graph.create_line (300, 100, 350, 100, fill='red', width='5')
-
-        # Coordenada x (dias da semana)
-        graph.create_text (100, 260, text='Sexta', fill='black')
-        graph.create_text (150, 260, text='Segunda', fill='black')
-        graph.create_text (200, 260, text='Terça', fill='black')
-        graph.create_text (250, 260, text='Quarta', fill='black')
-        graph.create_text (300, 260, text='Quinta', fill='black')
-        graph.create_text (350, 260, text='Sexta', fill='black')
-
-        # Coordenada y (valores de referência)
-        graph.create_text (30, 250, text='1,00', fill='black')
-        graph.create_text (30, 200, text='1,50', fill='black')
-        graph.create_text (30, 150, text='2,00', fill='black')
-        graph.create_text (30, 100, text='2,50', fill='black')
-        graph.create_text (30, 50, text='3,00', fill='black')
-
-        graph.pack()
-
     def action(self):
         webbrowser.open('http://www.bcb.gov.br/htms/infecon/taxas/taxas.htm')
 
@@ -139,7 +88,6 @@ class CotadorDolar:
                    font=('Verdana, 10'), width=60, command=self.action).pack(side=LEFT)
             self.getStatus()
             self.getDolar()
-            self.Graph()
         except IOError:
             texto = 'Sua conexão com a internet ou o site do Banco Central\n está com problemas, tente novamente daqui alguns segundos.'
             Label(self.frame3, text=texto, font=('Verdana, 10'), width=60, bg='red').pack(side=LEFT)
