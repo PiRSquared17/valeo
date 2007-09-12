@@ -1,7 +1,7 @@
 #/usr/bin/python
 # -*- coding: utf-8  -*-
 
-import sys, nntplib, StringIO, socket, getpass
+import sys, nntplib, StringIO, socket, getpass, string, rfc822
 
 class News:
 
