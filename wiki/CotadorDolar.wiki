@@ -7,22 +7,20 @@ Cotação diária do dólar direto do site do Banco Central do Brasil.
 == Dependências ==
 
   * Windows:
-    * [http://www.python.org/ftp/python/2.5.1/python-2.5.1.msi Python 2.5]
+    * [http://www.python.org/ftp/python/2.5.1/python-2.5.1.msi Python 2.4]
 
   * Linux:
-    * Python 2.5
+    * Python 2.4 ou superior
     * Pacote "python-tkinter"
 
 == Instalação ==
 Para qualquer plataforma, somente rode o "CotadorDolar.pyw"
   
 == A fazer ==
-  * Parser do HTML com BeautifulSoup.py
   * Gravação de cotações de dias anteriores para criar um gráfico semanal.
 
 == Licença ==
 "CotadorDolar" é distribuído pela licença MIT.
 
 Parte deste software usa:
-  * "Python Wikipedia Bot" é distribuído pela licença MIT.
   * "BeautifulSoup.py" é distribuído pela licença PSF.
