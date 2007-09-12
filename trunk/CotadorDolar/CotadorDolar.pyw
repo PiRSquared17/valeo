@@ -3,10 +3,9 @@
 '''
 todo:
 gravar valores (pickle, shelve, sqlite, ...)
-obter valores reais para o gráfico
 
 '''
-
+from BeautifulSoup import BeautifulSoup
 import webbrowser, codecs
 import urllib, time, httplib
 try:
@@ -26,17 +25,13 @@ class CotadorDolar:
     seg = time.strftime("%H", time.localtime())
     feriado = time.strftime('%w', time.gmtime())
 
-    ######################################################################################
-    # Substituir por BeautifulSoup.py                                                    #
-    ######################################################################################
-    site = 'http://www.bcb.gov.br/htms/infecon/taxas/taxas.htm'
-    getSite = urllib.urlopen(site).read()
-    for line in getSite.split('</TR><tr><td ALIGN=CENTER class="fundoPadraoBClaro2">'):
-        data = line[:10]
-        compra = ' '+line[58:][:5]
-        venda = ' '+line[112:][:5]
-    ######################################################################################
- 
+    url = 'http://www.bcb.gov.br/htms/infecon/taxas/taxas.htm'
+    html = urllib.urlopen(url).read()
+    soup = BeautifulSoup(html)
+
+    cotacao = soup.findAll('td')[-3:]
+    data, compra, venda = [td.string for td in cotacao]
+
     def __init__(self, parent):
         
         menubar = Menu(root)
@@ -59,9 +54,6 @@ class CotadorDolar:
         self.frame2 = Frame(root)
         self.frame2.pack()
         
-        #self.frame3 = Frame(root)
-        #self.frame3.pack()
-
         self.frame4 = Frame(root)
         self.frame4.pack()
         Label(self.frame4, width=60).pack(side=LEFT)
@@ -112,7 +104,7 @@ class CotadorDolar:
         dia = self.data
         cotacao_compra = self.compra
         cotacao_venda = self.venda
-        texto = '\nCotação do dia %s\n\n Compra: %s\n Venda: %s\n' % (dia, cotacao_compra, cotacao_venda)
+        texto = u'\nCotação do dia %s\n\n Compra: %s\n Venda: %s\n' % (dia, cotacao_compra, cotacao_venda)
         Label(self.frame2, text=texto, font=('Verdana, 14'), width=60).pack(side=LEFT)
 
     def About(self):
