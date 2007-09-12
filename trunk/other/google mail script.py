@@ -56,4 +56,4 @@ if __name__ == '__main__':
     try:
         sendmsg(argv[1], argv[2], argv[3])
     except IndexError:
-        print 'run google mail script.py from to subject'
+        print 'run google_mail_script.py from to subject'
