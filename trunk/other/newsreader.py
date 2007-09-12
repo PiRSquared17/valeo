@@ -1,5 +1,7 @@
-!/usr/bin/python
+#/usr/bin/python
 # -*- coding: utf-8  -*-
+
+import sys, nntplib, StringIO, socket, getpass
 
 class News:
 
@@ -70,7 +72,7 @@ def main():
         
     except IndexError:
         # usage newsreader.py [action] 
-        print 'Usage: %s <server> <newsgroup> <user>' % argv[0]
+        print 'Usage: %s <server> <newsgroup> <user>' % sys.argv[0]
         print 'Try: newsreader.py news.gmane.org gmane.comp.python.announce guest' # Public group
         raise SystemExit
 
