@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*-
 
 from BeautifulSoup import *
+from urllib import urlopen
 import urllib
 
-varzea_grande = 'BRXX0255'
+class FirefoxFaker(urllib.URLopener):
+    version = "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1b1) Gecko/20060601 Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.4) Gecko/20060508 Firefox/1.5.0.4 (Ubuntu-edgy)"
 
+    def __init__(self, *args):
+        urllib.URLopener.__init__(self)
+
+urllib._urlopener = FirefoxFaker()
+
+varzea_grande = 'BRXX0255'
 url = 'http://www.weather.com/outlook/travel/businesstraveler/local/%s' % varzea_grande
 html = urllib.urlopen(url).read()
 soup = BeautifulSoup(html)
