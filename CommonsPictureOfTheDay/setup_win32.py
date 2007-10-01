@@ -8,7 +8,7 @@ import os
 
 setup(
     name = 'CommonsPictureOfTheDay',
-    version = '0.1',
+    version = '1.0',
     description = 'Put "picture of the day" in your Desktop wallpaper from Wikimedia Commons',
     author = 'Leonardo Gregianin',
     author_email = 'leogregianin@gmail.com',
@@ -21,14 +21,13 @@ setup(
           'Environment :: Web Environment',
           'Intended Audience :: End Users/Desktop',
           'License :: OSI Approved :: MIT License',
-          'Operating System :: MacOS :: MacOS X',
           'Operating System :: Microsoft :: Windows',
           'Operating System :: POSIX',
           'Programming Language :: Python',
           ],
     
     packages = ['CommonsPictureOfTheDay', 'CommonsPictureOfTheDay.families', 'CommonsPictureOfTheDay.userinterfaces'],
-    data_files=[('\\Lib\\site-packages\\CommonsPictureOfTheDay', ['CommonsPictureOfTheDay\\CommonsPictureOfTheDay-Win32.pyw'])]
+    data_files=[('\\Python25\\Lib\\site-packages\\CommonsPictureOfTheDay', ['CommonsPictureOfTheDay\\CommonsPictureOfTheDay-Win32.pyw'])]
     )    
 
 ### Install CommonsPictureOfTheDay in registry
