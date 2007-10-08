@@ -1,0 +1,13 @@
+----------------------------
+project: libgmail demos
+----------------------------
+
+* delete_all.py is a demo to delete all messages in folder.
+* readmail.py read all messages for folders.
+* send_mail.py send e-mails with or without attachment and
+  use gui.py to edit body message.
+
+
+see more:
+http://sf.net/projects/libgmail
+http://gavamail.cvs.sourceforge.net/gavamail/pyGmail/

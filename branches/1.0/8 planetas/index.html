@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ansi-code" />
+<title>Sistema solar</title>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="rotator.js" type="text/javascript"></script>
+<link href="main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+$(document).ready(function(){
+   $("#rotation_control").click( function() {
+     (rotate) ? rotate = false : rotate = true;
+    (rotate) ? $(this).children().src("stop.png") :  $(this).children().src("rotate.png");
+     run();
+   });
+   items = $("#links .name");
+   items.cartesianToSphereical();
+   rotate = true;
+   run();
+   de = document.documentElement;
+   w = window.innerWidth || self.innerWidth || (de && de.clientWidth) || document.body.clientWidth;
+   h = window.innerHeight || self.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
+   items.hover(function(){ 
+     $(this).addClass("over");
+
+   },function(){
+     $(this).removeClass("over");
+
+   });
+});
+</script>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-945946-3";
+urchinTracker();
+</script>
+
+</head>
+
+<body>
+
+<div id="x_axis">
+   <div id="y_axis">
+       <img id="world" src="sun.jpg" alt="Sol" />
+
+      <div id="links">
+
+<div class="name" posX="500"   posY="0"     posZ="0"><a href="http://pt.wikipedia.org/wiki/Mercúrio">Mercúrio</a></div>
+<div class="name" posX="-500"  posY="0"     posZ="0"><a href="http://pt.wikipedia.org/wiki/Vênus">Vênus</a></div>
+<div class="name" posX="0"     posY="500"   posZ="0"><a href="http://pt.wikipedia.org/wiki/Terra">Terra</a></div>
+<div class="name" posX="0"     posY="-500"  posZ="0"><a href="http://pt.wikipedia.org/wiki/Marte">Marte</a></div>
+<div class="name" posX="300"   posY="400"   posZ="0"><a href="http://pt.wikipedia.org/wiki/Júpiter">Júpiter</a></div>
+<div class="name" posX="-300"  posY="400"   posZ="0"><a href="http://pt.wikipedia.org/wiki/Saturno">Saturno</a></div>
+<div class="name" posX="300"   posY="-400"  posZ="0"><a href="http://pt.wikipedia.org/wiki/Urano">Urano</a></div>
+<div class="name" posX="-300"  posY="-400"  posZ="0"><a href="http://pt.wikipedia.org/wiki/Neptuno">Neptuno</a></div>
+
+</div>
+</div>
+</div>
+<div id="debug"></div>
+
+<div id="frame">
+
+<div id="rotation_control" class="f1"><img src="stop.png" alt="" width="30" height="29" /><font color="#C0C0C0">Parar de rodar</font></div> 
+</div>
+
+<ul id="footer">
+	<li>Baseado no site <a href="http://www.worldfirefoxday.com/">www.worldfirefoxday.com</a></li>
+
+	<li><a href="http://www.mozilla.com/privacy-policy.html">Política de Privacidade Mozilla</a></li><br />
+
+        <li><a href="http://valeo.googlecode.com/svn/trunk/8 planetas/">Código fonte deste site</a></li><br />
+
+	<li><a href="http://validator.w3.org/check/referer"><img src="valid_html_small.gif" border="0" width="80" height="15"/>
+</a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3&usermedium=all"><img src="valid_css_small.gif" border="0" width="80" height="15"/>
+</a>
+
+<img src="anybrowser.png" border="0" width="80" height="15"/></li>
+   
+</ul>
+
+</div>
+</div>
+</body>
+</html>
