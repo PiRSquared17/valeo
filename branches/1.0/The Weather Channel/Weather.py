@@ -1,4 +1,30 @@
 # -*- coding: utf-8 -*-
+'''
+The Weather Channel
+   Preferências: 
+        cidade (mapear todos os zip codes)
+        medida: ºC ou ºF
+        língua
+
+   gravar cidade, medida e língua de preferência
+   
+   Mostrar:
+        Temperatura
+        Humidade
+        Visibilidade
+        Vento
+        Pressão
+        Nascer do sol
+        Pôr do sol
+        Ponto de orvalho
+        Sensação térmica
+        Índice de raios ultra-violetas
+        Última atualização
+        Condição do tempo: Sol, Chuva, Fumaça, Nublado, ...
+        Imagem da condição do tempo
+        Tempo de amanhã: temperatura e chances de chuva
+
+'''
 
 from BeautifulSoup import *
 from urllib import urlopen
