@@ -1,8 +1,4 @@
 Win32 package
 Auto call flag
-Show message (emit function) when "time warning"
-Show message (emit function) when I am in "check"
 Captured pieces side panel
 Fullscreen mode
-Using GUI to report bugs
-Show GUI when [sqlite, pysqlite, pygtk] not install
