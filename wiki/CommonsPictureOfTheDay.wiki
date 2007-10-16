@@ -54,10 +54,9 @@ Então fui ao *Wikimedia Commons* pela imagem destacada do dia, imagem esta esco
   # Easy installer.
   # Transparency executable.
   # Windows: Registry entry, automatic executable daily.
-  # Linux: GConf entry, automatic executable daily.
 
 == Todo ==
-  * Nautilus startup
+  * Linux: GConf entry, automatic executable daily.
 
 == Limitations ==
   * Windows not support SVG files
