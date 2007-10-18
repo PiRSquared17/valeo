@@ -63,9 +63,9 @@ class About(gtk.AboutDialog):
 class ExpanderCity(gtk.Dialog):
 
     def __init__(self, parent=None):
-        gtk.Dialog.__init__(self, self.__class__.__name__, parent,  0, (gtk.STOCK_CLOSE, gtk.RESPONSE_NONE))
+        gtk.Dialog.__init__(self, 'Choose your city', parent,  0, (gtk.STOCK_CLOSE, gtk.RESPONSE_NONE))
         self.connect("response", lambda d, r: d.destroy())
-        self.set_resizable(True)
+        self.set_resizable(False)
 
         vbox = gtk.VBox(False, 12)
         self.vbox.pack_start(vbox, True, True, 0)
@@ -73,7 +73,7 @@ class ExpanderCity(gtk.Dialog):
         vbox.set_border_width(8)
 
         label = gtk.Label()
-        label.set_markup("Choose your city")
+        label.set_markup("Navegation for the expansion buttons:")
         vbox.pack_start(label, False, False, 0)
 
         expander = gtk.Expander("America"); vbox.pack_start(expander, False, False, 0)
@@ -86,7 +86,7 @@ class ExpanderCity(gtk.Dialog):
         self.show_all()
 
 # Create menu in tray icon
-class WeatherIcon(gtk.StatusIcon):
+class WeatherChannel(gtk.StatusIcon):
 
     def __init__(self):
         gtk.StatusIcon.__init__(self)
@@ -128,7 +128,7 @@ class WeatherIcon(gtk.StatusIcon):
         self.manager.insert_action_group(ag, 0)
         self.manager.add_ui_from_string(menu)
         self.menu = self.manager.get_widget('/Menubar/Menu/About').props.parent
-        #gtk.gdk.pixbuf_new_from_file(os.path.join('', 'weather-storm-trayicon.png')))
+        #trayicon = os.path.join('', 'weather-storm-trayicon.png')
         self.set_from_stock(gtk.STOCK_YES)
         self.set_tooltip('Coopera Weather')
         self.set_visible(True)
@@ -181,27 +181,33 @@ class OfflineIcon(gtk.StatusIcon):
         self.manager.insert_action_group(ag, 0)
         self.manager.add_ui_from_string(menu)
         self.menu = self.manager.get_widget('/Menubar/Menu/About').props.parent
-        trayicon = file(weather-storm-trayicon.png)
-        self.set_from_stock(trayicon)
+        self.set_from_stock(gtk.STOCK_NO)
         self.set_tooltip('Coopera Weather')
         self.set_visible(True)
         self.connect('popup-menu', self.on_popup_menu)
         
-    def on_quit(self):
+    def on_quit(self, data):
         sys.exit()
 
     def on_popup_menu(self, status, button, time):
         self.menu.popup(None, None, None, button, time)
 
-    def on_about(self):
+    def on_about(self, data):
         About()
 
-if __name__ == '__main__':
+def main():
+    try:
+        url = 'http://www.google.com'
+        html = urlopen(url).read()
+        check = True
+    except:
+        check = False
+    if check == True:
+        WeatherChannel()
+        gtk.main()
+    else:
+        OfflineIcon()
+        gtk.main()
 
-    # Check if internet connect
-    #try:
-    WeatherIcon()
-    gtk.main()
-    #except:
-    #    OfflineIcon()
-    #    gtk.main()
+if __name__ == '__main__':
+    main()
