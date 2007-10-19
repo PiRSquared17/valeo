@@ -168,16 +168,3 @@ class OfflineIcon(gtk.StatusIcon):
     def on_about(self, data):
         About()
 
-def main():
-    try:
-        url = 'http://www.google.com'
-        html = urlopen(url).read()
-        check = True
-    except:
-        check = False
-    if check == True:
-        WeatherChannel()
-        gtk.main()
-    else:
-        OfflineIcon()
-        gtk.main()
