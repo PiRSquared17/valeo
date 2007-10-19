@@ -4,7 +4,7 @@
 from BeautifulSoup import *
 from urllib import *
 
-from code_city import code
+from CodeCity import code
 from FirefoxHeader import *
 
 i = 0
