@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pygtk
-pygtk.require('2.0')
-
 from BeautifulSoup import *
 from urllib import *
 import gtk

@@ -2,9 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from urllib import urlopen
+import sys
+
 from FirefoxHeader import *
 from libcoopera import *
-import gtk
+try:
+    import pygtk, gtk
+    pygtk.require('2.0')
+except ImportError:
+    print "Coopera Weather require GTK and PyGTK installed in your machine."
+    sys.exit()
 
 def main():
     try:
