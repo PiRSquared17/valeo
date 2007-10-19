@@ -110,6 +110,7 @@ class WeatherChannel(gtk.StatusIcon):
         ExpanderCity()
         
     def on_moreinfo(self, data):
+        from libweather import url
         webbrowser.open(url)
         
     def on_quit(self, data):
