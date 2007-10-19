@@ -81,10 +81,10 @@ class WeatherChannel(gtk.StatusIcon):
         from libweather import weather_c, temp, updated, i
         actions = [
             ('Menu',  None, 'Menu'),
-            ('City', gtk.STOCK_YES, code.keys()[i], None, 'City', None),
-            ('Weather', gtk.STOCK_YES, weather_c, None, 'Weather', None),
-            ('Temp', gtk.STOCK_YES, temp, None, 'Temperature', None),
-            ('Updated', gtk.STOCK_YES, updated, None, 'Updated', None),
+            ('City', None, code.keys()[i], None, 'City', None),
+            ('Weather', None, weather_c, None, 'Weather', None),
+            ('Temp', None, temp, None, 'Temperature', None),
+            ('Updated', None, updated, None, 'Updated', None),
             ('More information', gtk.STOCK_INFO, '_More information', None, 'More info', self.on_moreinfo),
             ('Refresh', gtk.STOCK_REFRESH, '_Refresh', None, 'Refresh weather', self.on_refresh),
             ('Preferences', gtk.STOCK_PREFERENCES, '_Preferences', None, 'Change City', self.on_preferences),
