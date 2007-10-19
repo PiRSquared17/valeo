@@ -54,7 +54,6 @@ class ExpanderCity(gtk.Dialog):
         
         self.show_all()
 
-# Create menu in tray icon
 class WeatherChannel(gtk.StatusIcon):
 
     def __init__(self):
@@ -122,7 +121,6 @@ class WeatherChannel(gtk.StatusIcon):
     def on_about(self, data):
         About()
 
-# Create menu if internet not available
 class OfflineIcon(gtk.StatusIcon):
 
     def __init__(self):
