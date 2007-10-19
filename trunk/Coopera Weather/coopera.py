@@ -10,6 +10,7 @@ import gtk
 import sys, os
 import webbrowser
 from code_city import code
+from libweather import *
 
 # Mozilla Firefox for open weather.com
 class Firefox(URLopener):
@@ -18,34 +19,12 @@ class Firefox(URLopener):
         URLopener.__init__(self)
 _urlopener = Firefox()
 
-##############################################################
-##############################################################
-i = 0
-city = code.values()[i]
-print city
-print code.keys()[i]
-
-url = 'http://www.weather.com/outlook/travel/businesstraveler/local/%s' % city
-html = urlopen(url).read()
-soup = BeautifulSoup(html)
-
-weather = soup.find('strong', {'class': 'obsTextA'}).string
-weather_c = 'Weather: %s' % weather
-temperature = soup.find('strong', {'class':'obsTempTextA'}).string
-temperature_split = int(temperature.replace(u'&deg;F', u''))
-temperature_F2C = int(temperature_split-32)/1.8
-temp_subst = temperature.replace(u'&deg;', u'º') # HTML string to unicode º
-temp = '%s / %iºC' % (temp_subst, temperature_F2C)
-updated = soup.find('div', {'class':'updated'}).string
-##############################################################
-##############################################################
-
 class About(gtk.AboutDialog):
     
     def __init__(self):
         super(About, self).__init__()
         self.set_name('Coopera Weather')
-        self.set_comments('Current weather information from www.weather.com')
+        self.set_comments('Current weather information from weather.com')
         self.set_version('0.17')
         self.set_copyright('© Leonardo Gregianin, 2007')
         self.set_license(file(os.path.join("", "LICENSE"), "r").read())
@@ -54,7 +33,7 @@ class About(gtk.AboutDialog):
         self.set_authors([file(os.path.join("", "AUTHORS"), "r").read()])
         self.set_translator_credits(file(os.path.join("", "TRANSLATORS"), "r").read())
         self.set_artists([file(os.path.join("", "ARTISTS"), "r").read()])
-        self.set_logo(gtk.gdk.pixbuf_new_from_file(os.path.join('', 'weather-storm-logo.png')))
+        self.set_logo(gtk.gdk.pixbuf_new_from_file(os.path.join('files', 'weather-storm-logo.png')))
         self.set_modal(True)
         self.show_all()
         self.run()
@@ -208,6 +187,3 @@ def main():
     else:
         OfflineIcon()
         gtk.main()
-
-if __name__ == '__main__':
-    main()
