@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 code = {
-    'Cuiaba, Brazil'                   : 'BRXX0077', # 0
+    'Cuiaba, Brazil'                   : 'BRXX0078', # 0
     'Sao Paulo, Brazil'                : 'BRXX0232', # 1
     'Dakar, Senegal'                   : 'SGXX0001', # 2
     'Paris, France'                    : 'FRXX0076', # 3
