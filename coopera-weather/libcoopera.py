@@ -103,7 +103,7 @@ class WeatherChannel(gtk.StatusIcon):
         self.connect('popup-menu', self.on_popup_menu)
         
     def on_refresh(self, data):
-        #WeatherChannel()
+        # call libweather
         pass
 
     def on_preferences(self, data):
