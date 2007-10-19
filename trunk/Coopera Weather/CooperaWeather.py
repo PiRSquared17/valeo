@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-import coopera
-coopera.main()
+import libcoopera
+libcoopera.main()
