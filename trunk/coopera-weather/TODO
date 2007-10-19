@@ -1,7 +1,20 @@
 
  i18n
  refresh button
- preferences dialog --> map
- create glade files
- tray icon
---> janela de informações do site+imagens do tempo, acima dos menus do software
+ settings --> spot graph over world map
+ create glade3 files
+ change tray icon image
+
+future:
+########################################
+#   IMAGE         City, Country        #
+#   IMAGE         XX,XºF / XX,XºC      #
+#   IMAGE                              #
+# Updated: Oct 16 01:00 p.m Local Time #
+########################################
+# Refresh                              #
+# Settings                             #
+########################################
+# About                                #
+# Quit                                 #
+########################################
