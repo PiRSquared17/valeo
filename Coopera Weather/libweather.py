@@ -9,8 +9,6 @@ from FirefoxHeader import *
 
 i = 0
 city = code.values()[i]
-print city
-print code.keys()[i]
 
 url = 'http://www.weather.com/outlook/travel/businesstraveler/local/%s' % city
 html = urlopen(url).read()
