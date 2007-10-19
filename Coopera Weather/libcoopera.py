@@ -78,7 +78,7 @@ class WeatherChannel(gtk.StatusIcon):
                </menubar>
                </ui>
                '''
-        from libweather import weather_c, temp, updated
+        from libweather import weather_c, temp, updated, i
         actions = [
             ('Menu',  None, 'Menu'),
             ('City', gtk.STOCK_YES, code.keys()[i], None, 'City', None),
