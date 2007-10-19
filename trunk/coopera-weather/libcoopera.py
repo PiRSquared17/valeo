@@ -18,7 +18,7 @@ class About(gtk.AboutDialog):
         self.set_version('0.17')
         self.set_copyright('© Leonardo Gregianin, 2007')
         self.set_license(file(os.path.join("", "LICENSE"), "r").read())
-        self.set_website('http://code.google.com/p/cooperaweather')
+        self.set_website('http://code.google.com/p/coopera-weather')
         self.set_website_label('Coopera Weather website')
         self.set_authors([file(os.path.join("", "AUTHORS"), "r").read()])
         self.set_translator_credits(file(os.path.join("", "TRANSLATORS"), "r").read())
