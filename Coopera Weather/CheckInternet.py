@@ -5,7 +5,7 @@ from urllib import urlopen
 import sys
 
 from FirefoxHeader import *
-from libcoopera import *
+from libcoopera import WeatherChannel, OfflineIcon
 try:
     import pygtk, gtk
     pygtk.require('2.0')
