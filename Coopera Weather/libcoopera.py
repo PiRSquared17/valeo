@@ -9,7 +9,7 @@ from urllib import *
 import gtk
 import sys, os
 import webbrowser
-from code_city import code
+from CodeCity import code
 from libweather import *
 from FirefoxHeader import *
 
