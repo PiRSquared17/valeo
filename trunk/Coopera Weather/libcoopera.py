@@ -7,7 +7,6 @@ import gtk
 import sys, os
 import webbrowser
 from CodeCity import code
-from libweather import *
 from FirefoxHeader import *
 
 class About(gtk.AboutDialog):
@@ -80,6 +79,7 @@ class WeatherChannel(gtk.StatusIcon):
                </menubar>
                </ui>
                '''
+        from libweather import weather_c, temp, updated
         actions = [
             ('Menu',  None, 'Menu'),
             ('City', gtk.STOCK_YES, code.keys()[i], None, 'City', None),
