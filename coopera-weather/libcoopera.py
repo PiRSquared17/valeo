@@ -78,7 +78,7 @@ class WeatherChannel(gtk.StatusIcon):
                </menubar>
                </ui>
                '''
-        from libweather import weather_c, temp, updated, i
+        from libweather import i, weather_c, temp, updated
         actions = [
             ('Menu',  None, 'Menu'),
             ('City', None, code.keys()[i], None, 'City', None),
@@ -97,14 +97,13 @@ class WeatherChannel(gtk.StatusIcon):
         self.manager.insert_action_group(ag, 0)
         self.manager.add_ui_from_string(menu)
         self.menu = self.manager.get_widget('/Menubar/Menu/About').props.parent
-        #trayicon = os.path.join('', 'weather-storm-trayicon.png')
         self.set_from_stock(gtk.STOCK_YES)
         self.set_tooltip('Coopera Weather')
         self.set_visible(True)
         self.connect('popup-menu', self.on_popup_menu)
         
     def on_refresh(self, data):
-        # call libweather
+        #WeatherChannel()
         pass
 
     def on_preferences(self, data):
