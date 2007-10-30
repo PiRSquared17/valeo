@@ -17,7 +17,7 @@ class CotadorDolar:
 
     tm = time.strftime('%d/%m/%Y', time.localtime())
     seg = time.strftime("%H", time.localtime())
-    feriado = time.strftime('%w', time.gmtime())
+    feriado = time.strftime('%w', time.localtime())
 
     def __init__(self, parent):
         
@@ -58,7 +58,7 @@ class CotadorDolar:
         self.netStatus()
 
     def action(self):
-        webbrowser.open('http://www.bcb.gov.br/htms/infecon/taxas/taxas.htm')
+        webbrowser.open('http://www.bcb.gov.br/?TXDOLAR')
 
     def projeto(self):
         webbrowser.open('http://code.google.com/p/valeo/wiki/CotadorDolar')
@@ -81,13 +81,14 @@ class CotadorDolar:
 
         cotacao = soup.findAll('td')[-3:]
         data, compra, venda = [td.string for td in cotacao]
+        variacao = ''
 
         if (self.feriado == '6'):
             fechado = 'Hoje é %s, Sábado não há cotações' % self.tm
         elif (self.feriado == '0'):
             fechado = 'Hoje é %s, Domingo não há cotações' % self.tm
         elif (data <> self.tm):
-            if self.seg >= '16':
+            if self.seg >= '17':
                 fechado = 'O site do Banco Central ainda não atualizou a cotação de hoje'
             else:
                 fechado = 'A cotação de hoje %s ainda não fechou' % self.tm
@@ -96,7 +97,7 @@ class CotadorDolar:
 
         status = Label(root, text=fechado, relief=SUNKEN, anchor=W)
         status.pack(side=BOTTOM, fill=X)
-        texto = u'\nCotação do dia %s\n\n Compra: %s\n Venda: %s\n' % (data, compra, venda)
+        texto = u'\nCotação do dia %s\n\n Compra: %s\n\n Variação: %s\n' % (data, compra, variacao)
         Label(self.frame2, text=texto, font=('Verdana, 14'), width=60).pack(side=LEFT)
 
     def About(self):
