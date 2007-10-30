@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name = 'Cotador Dolar',
-    version = '0.1',
+    version = '1.0',
     description = u'Cotação do dólar direto do site do Banco Central do Brasil',
     author = 'Leonardo Gregianin',
     author_email = 'leogregianin@gmail.com',
