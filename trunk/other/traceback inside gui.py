@@ -1,6 +1,8 @@
 from Tkinter import Tk
 from gui import EditBoxWindow
 import sys
+# TODO: usage sys.excepthook
+
 
 def run_user_code(envdir):
     source = raw_input(">>> ")
