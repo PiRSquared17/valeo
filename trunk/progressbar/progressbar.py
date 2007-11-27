@@ -362,7 +362,7 @@ if __name__=='__main__':
 
 
     example1()
-    #example2()
-    #example3()
-    #example4()
+    example2()
+    example3()
+    example4()
 
