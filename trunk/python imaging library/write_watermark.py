@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+'''
+First download "Picture of the Day" from http://commons.wikimedia.org/wiki/Commons:Picture_of_the_day
+and write watermark say: "Wikimedia Commons"
+
+Do you need wikipedia.py module, see: http://svn.wikimedia.org/svnroot/pywikipedia/trunk/pywikipedia
+'''
 
 from wikipedia import Site, Page, ImagePage
 from PIL import Image, ImageDraw, ImageFont
@@ -47,11 +53,9 @@ if __name__ == '__main__':
     imageURL = ImagePage(commons, image_name)
     featuredImage = imageURL.fileUrl()
     image = featuredImage[27:]
-    if image.endswith('.svg'):
-        sys.exit() # Windows background don't accept svg files
     
     get_commons_image(image)
 
     write_gray('Picture_of_the_day.bmp',
-               'http://commons.wikimedia.org/wiki/Commons:Picture_of_the_day',
+               'Wikimedia Commons',
                'Picture_of_the_day.bmp')
