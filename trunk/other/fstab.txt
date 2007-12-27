@@ -1,0 +1,5 @@
+# Automount Microsoft Windows file system
+# First create "/media/windows" directory
+# /etc/fstab (my hard disk location /dev/hda3)
+# <file system> <mount point>   <type>  <options>                       <dump> <pass>
+/dev/hda3       /media/windows  vfat    iocharset=utf8,auto,umask=000   0      0
