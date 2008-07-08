@@ -6,46 +6,21 @@ from Tkinter import *
 
 __version__ = '0.2'
 
-class FrasedoDia:
+# Contribuintes:
+# Walter Cruz
 
-    dia = time.strftime('%d', time.localtime())
-    mes = time.strftime('%m', time.localtime())
-    ano = time.strftime('%y', time.localtime())
-
-    if dia == '01': dia = '1'
-    if dia == '02': dia = '2'
-    if dia == '03': dia = '3'
-    if dia == '04': dia = '4'
-    if dia == '05': dia = '5'
-    if dia == '06': dia = '6'
-    if dia == '07': dia = '7'
-    if dia == '08': dia = '8'
-    if dia == '09': dia = '9'
-    
-    if mes == '01': mes = 'Janeiro'
-    if mes == '02': mes = 'Fevereiro'
-    if mes == '03': mes = u'Março'
-    if mes == '04': mes = 'Abril'
-    if mes == '05': mes = 'Maio'
-    if mes == '06': mes = 'Junho'
-    if mes == '07': mes = 'Julho'
-    if mes == '08': mes = 'Agosto'
-    if mes == '09': mes = 'Setembro'
-    if mes == '10': mes = 'Outubro'
-    if mes == '11': mes = 'Novembro'
-    if mes == '12': mes = 'Dezembro'
-
-    if ano == '08': ano = '2008'
-    if ano == '09': ano = '2009'
-    if ano == '10': ano = '2010'
-    if ano == '11': ano = '2011'
-    if ano == '12': ano = '2012'
-
-    today = '%s_de_%s' % (dia, mes)
-    _today = '%s de %s de %s' % (dia, mes, ano)
+class FrasedoDia(object):
 
     def __init__(self, parent):
-
+        meses = ('Janeiro','Fevereiro',u'Março','Abril',
+        'Maio','Junho','Julho','Agosto','Setembro','Outubro',
+        'Novembro','Dezembro')
+        now = time.localtime()
+        year = time.strftime('%Y',now)
+        month = meses[now.tm_mon - 1]
+        day = now.tm_mday
+        self.today = '%s_de_%s' % (day, month)
+        self._today = '%s de %s de %s' % (day, month, year)
         menubar = Menu(root)
         root.config(menu=menubar)
         root.title('Frase do dia %s' % self._today)
@@ -109,7 +84,7 @@ site pt.wikiquote.org
 
 Informações
 contato: Leonardo Gregianin
-email:   leogregianin@gmail.com''' % __version__)
+email: leogregianin@gmail.com''' % __version__)
 
     def Quit(self):
         root.destroy()
