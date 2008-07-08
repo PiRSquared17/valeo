@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import time, re, sys
+import time, re
 import wikipedia
 from Tkinter import *
 
-class FrasedoDia:
+__version__ = '0.2'
 
-    copyright = '"Frase do Dia" é software livre; você pode redistribuí-lo\n e/ou modificá-lo sobre os termos da Licença MIT.'
-    autor = 'Leonardo Gregianin'
-    ano = '2007'
-    siteprojeto = 'http://code.google.com/p/valeo/wiki/FrasedoDia'
+class FrasedoDia:
 
     dia = time.strftime('%d', time.localtime())
     mes = time.strftime('%m', time.localtime())
+    ano = time.strftime('%y', time.localtime())
 
     if dia == '01': dia = '1'
     if dia == '02': dia = '2'
@@ -37,22 +35,30 @@ class FrasedoDia:
     if mes == '11': mes = 'Novembro'
     if mes == '12': mes = 'Dezembro'
 
+    if ano == '08': ano = '2008'
+    if ano == '09': ano = '2009'
+    if ano == '10': ano = '2010'
+    if ano == '11': ano = '2011'
+    if ano == '12': ano = '2012'
+
     today = '%s_de_%s' % (dia, mes)
-     
+    _today = '%s de %s de %s' % (dia, mes, ano)
+
     def __init__(self, parent):
-        
+
         menubar = Menu(root)
         root.config(menu=menubar)
-        root.title('Frase do Dia')
+        root.title('Frase do dia %s' % self._today)
         root.geometry('450x320')
 
         filemenu1 = Menu(menubar)
         filemenu2 = Menu(menubar)
 
-        menubar.add_cascade(label='Ações', menu=filemenu1)
+        menubar.add_cascade(label='Arquivo', menu=filemenu1)
         menubar.add_cascade(label='Ajuda', menu=filemenu2)
 
         filemenu1.add_command(label='Sair', command=self.Quit)
+        filemenu2.add_command(label='Abrir http://pt.wikiquote.org', command=self.Quote)
         filemenu2.add_command(label='Sobre', command=self.About)
 
         self.frame1 = Frame(root)
@@ -74,9 +80,6 @@ class FrasedoDia:
 
         self.getQuote()
 
-    def projeto(self):
-        webbrowser.open('http://code.google.com/p/valeo/wiki/FrasedoDia')
-
     def getQuote(self):
         site = wikipedia.getSite('pt', 'wikiquote')
         template = 'Template:Frase_do_dia/%s' % self.today
@@ -85,30 +88,32 @@ class FrasedoDia:
     
         r = re.search('(?<=frase=)(.+)', text)
         m = re.search('(?<=autor=)(.+)', text)
-        quote = """\n%s \n\n%s \n\n\nFonte: http://pt.wikiquote.org""" % (r.group(0), m.group(0))
+        quote = """\n%s \n\n%s \n""" % (r.group(0), m.group(0))
 
         text = Text(self.frame2, font=('Verdana, 12'))
         text.pack()
         text.insert('insert', quote)
         
-    def About(self):
-        root = Tk()
-        root.title('Sobre a Frase do Dia')
-        root.geometry('400x250')
-        text = Label(root)
-        text2 = Label(root)
-        text.pack()
-        text2.pack()
-        creditos = ('\n%s\n\n%s, %s\n' % (self.copyright, self.autor, self.ano))
-        Label(text, text=creditos, font=('Verdana, 10'), width=60).pack(side=LEFT)
-        Button(text2, text=self.siteprojeto, font=('Verdana, 10'), command=self.projeto).pack(side=LEFT)
+    def Quote(self):
+        import webbrowser
+        webbrowser.open("http://pt.wikiquote.org", 1)
 
-    def Site(self):
-        webbrowser.open("%s" % self.site)
+    def About(self):
+        import tkMessageBox
+        tkMessageBox.showinfo('Frase do Dia %s' % __version__,
+                              u'''\
+Frase do Dia %s
+
+Citação do dia pelo
+site pt.wikiquote.org
+
+Informações
+contato: Leonardo Gregianin
+email:   leogregianin@gmail.com''' % __version__)
 
     def Quit(self):
         root.destroy()
-                
+
 if __name__ == "__main__":
     root = Tk()
     app = FrasedoDia(root)

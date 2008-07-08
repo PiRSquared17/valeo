@@ -1,0 +1,5 @@
+Instale:
+Python 2.5
+
+Execute:
+Frase do Dia.pyw
