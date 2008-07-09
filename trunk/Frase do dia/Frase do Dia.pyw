@@ -4,7 +4,7 @@ import time, re
 import wikipedia
 from Tkinter import *
 
-__version__ = '0.2'
+__version__ = '0.3'
 
 # Contribuintes:
 # Walter Cruz
