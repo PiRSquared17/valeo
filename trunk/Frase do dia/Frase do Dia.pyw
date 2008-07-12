@@ -91,5 +91,6 @@ email: leogregianin@gmail.com''' % __version__)
 
 if __name__ == "__main__":
     root = Tk()
+    root.resizable(width=FALSE, height=FALSE)
     app = FrasedoDia(root)
     root.mainloop()
