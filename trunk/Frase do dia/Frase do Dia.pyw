@@ -6,9 +6,6 @@ from Tkinter import *
 
 __version__ = '0.3'
 
-# Contribuintes:
-# Walter Cruz
-
 class FrasedoDia(object):
 
     def __init__(self, parent):
