@@ -8,8 +8,7 @@ else:
     #todo: linux sound 
     pass
 
-from Tkinter import *
-import tkMessageBox
+from Tkinter import Tk, Label
 
 ##################### User preferences #####################
 
@@ -17,12 +16,12 @@ import tkMessageBox
 hours = '23'
 
 # Minutes
-minutes = '34'
+minutes = '49'
 
 # Your alerts: beep, dialog, fullscreen
 #alert = "beep"
-alert = "dialog"
-#alert = "fullscreen"
+#alert = "dialog"
+alert = "fullscreen"
 
 ############################################################
 
@@ -45,7 +44,8 @@ def FullScreen(root):
     root.bind("<q>", lambda e: e.widget.quit())
 
 def dialog():
-    tkMessageBox.showinfo('Live Alarm', u'''\
+    import tkMessageBox
+    tkMessageBox.showwarning('Live Alarm', u'''\
 Live Alarm
 
 Now are %s:%s hrs''' % (hours_now, minutes_now))
