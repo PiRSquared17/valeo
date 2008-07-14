@@ -1,0 +1,12 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Indymedia.org</os:ShortName>
+<os:Description>Indymedia.org</os:Description>
+<os:InputEncoding>ISO-8859-1</os:InputEncoding>
+<os:Image width="16" height="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH1QYKEzoaqHEI0gAAAaVJREFUeJy9UT1LI1EUPcgUN5DiFiO8IsUrIuTBFA5YZKwcsFgGK7u1U9jCsQohVcrgT9hCGLvZZjdYppHMVjGwoKkEsdBmiRaiDwnMKwbeFhnWTbCy2NPdr3PuPRf4f/A9Xzbku6VoO2KXF1LhVhi3YgBE9G+eiOCAiNJv6VuJmYcXQ3Io+hRJuSxysH9ARPGXuN1pA1gBcHR4NPgxUJ6Sa1JrrRrqL5Hv+dnPrN1qD84Hu593S47Rr5HyVHKaMPN8MQBwAGDO2j/rE+j59blU8Ov+/c09rzIMKk4FwOhidHd7B0JucmaGAwNDDpUDcGAKgwLk0svTCwAWnM9yKqhSrZiZQQF2WT/qUljPNBGZ3OjfmqoUNIPx+fjh6cEUJje5kGIymWyub2bjrNw2/Z4GG8He/p7yVLARCFdYa6+vrpWnhCu6nS67nHxNwq2wHAiaQe+4ByDaiQAIKay1w2wIQNalaihRE+lpumB23IpFTczv8dd9a23/rF965aDb6XJ18dMAVL20P9wOrbXJSTIPZU2ClpsXcHl1aa2dTqeyvvz1j+APDr6WXDJO42gAAAAASUVORK5CYII=</os:Image>
+<UpdateInterval>7</UpdateInterval>
+<UpdateUrl>http://mycroft.mozdev.org/update.php/id0/indymedia-org.src</UpdateUrl>
+<IconUpdateUrl>http://mycroft.mozdev.org/update.php/id0/indymedia-org.png</IconUpdateUrl>
+<SearchForm>http://www.indymedia.org</SearchForm>
+<os:Url type="text/html" method="GET" template="https://publish.indymedia.org/earth/servlet/OpenMir?search_content={searchTerms}&amp;do=search&amp;language=en&amp;search_sort=score&amp;search_boolean=and&amp;sourceid=Mozilla-search">
+</os:Url>
+</SearchPlugin>
