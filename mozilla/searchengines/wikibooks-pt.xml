@@ -1,0 +1,12 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Wikibooks (Pt)</os:ShortName>
+<os:Description>Dedicado ao desenvolvimento e livre disseminaÔøΩÔøΩo de livros e textos</os:Description>
+<os:InputEncoding>UTF-8</os:InputEncoding>
+<os:Image width="16" height="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAFfKj/FAAAAFXRFWHRDcmVhdGlvbiBUaW1lAAfUDBoRHxZORD+bAAAAB3RJTUUH1AwaESITgcdg2gAAAAlwSFlzAAAK8AAACvABQqw0mAAAAwBQTFRFDAoGGxkXPDs5AABRAABUAABZAABbAABeABpeAAlnAAtmAAlsAAxqAAZzAAl0ABljABlvABV0ACBsACZqACpwACtxDTRyEjNrHkN9LkhtKUZ5KEl/QD46QkJBTUlEVE1DVVFMVVRTXlpURFl8X2ZxY19YaWhndHFud3Ntd3RuABeGAByPACGLDDiAADOeADenGkaOIkuLJUyINlOAI1u8Omi5QVqCTmOCSmKJTWWLQWGTRmaYVGiFWWmEVW+YXG+QWnWgXXegZXWSZXaUZXmUbn2RYHylQnDAc4OZc4Oaboeuc4WkZ4vMfJnOiH1phH1z/wD/hoSCiIaCnpuXh5OmhpOsi5eoipu3jp21lZ6qqJqEopuRrqecoKStoKm3pqy0o625oq29qK20r7O6vressba8nLXhtrvCsbzJuL3GucLSwbuxwL66wL67w7+6w8G+2c69ycXBysfBy8fByMfFzMzMzs7O0dDP2dHF3tjO0dDR0NTb2tvd393b3t7e19zh5trE4tjK49vO4t7X7OPT+e3X4Obu6ufg6urq8+zh9e7j9/Dk9vHo9/Lq+fDi+PLo+PPq//rn//3t//7s///t//zy///w//32///6///+////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYd6bQwAAAFF0Uk5T//////////////////////////////////////////////////////////////////////////////////////////////////////////8AaOyowQAAAO1JREFUeNpjCAhgCIhkAJKzuhgCgsoMGQLYOEWBfKBI2KzpAQxari5AFSyCBgzuDapFmtEg9VzZ+XnFoUCG6axy5+TJYkDlKc3tM+oTwfrAevmbNIt6hYAMnZa6jsBSIMMkKje4sNILqMt7lq1NrTGQwTol1WPaRCBDm5mdR0DXgSFAJWbmzAlZbQzh0vaWymZujnYWUhDzfLgL+hRkctQZNPytwAIBetZ+SrKKakyMcvIiYAFf3p5Zs6ojEjJqpnZygAQC9IVn9XtKxpk7VXWXGIEE0viSWhsrMjPT42NDJEACAeKzEGAS3PkwAAD8tlN3Idy9tAAAAABJRU5ErkJggg==</os:Image>
+<UpdateInterval>7</UpdateInterval>
+<UpdateUrl>http://mycroft.mozdev.org/update.php/id0/Wikibooks-pt.src</UpdateUrl>
+<IconUpdateUrl>http://mycroft.mozdev.org/update.php/id0/Wikibooks-pt.png</IconUpdateUrl>
+<SearchForm>http://pt.wikibooks.org/wiki/Special:Search</SearchForm>
+<os:Url type="text/html" method="GET" template="http://pt.wikibooks.org/wiki/Special:Search?search={searchTerms}&amp;fulltext=Search&amp;sourceid=mozilla-search&amp;offset=0">
+</os:Url>
+</SearchPlugin>

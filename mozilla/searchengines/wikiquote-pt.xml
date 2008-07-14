@@ -1,0 +1,12 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Wikiquote (pt)</os:ShortName>
+<os:Description>Uma coletÔøΩnea livre e gratuita de citaÔøΩÔøΩes</os:Description>
+<os:InputEncoding>UTF-8</os:InputEncoding>
+<os:Image width="16" height="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAFfKj/FAAAAFXRFWHRDcmVhdGlvbiBUaW1lAAfUDBoRLR/a6NNOAAAAB3RJTUUH1AwaES02TVuoUgAAAAlwSFlzAAALEgAACxIB0t1+/AAAAwBQTFRFAAY+AAo9AAo+AAs+AAs/AApAAApBAAtCAAxCABFGABJIABhMABlNACddCCFUAC5jATNmAzZoCDlrFztqHDRjJEt4KUp1PFN7HlaOJ12TKV6UNliCK2CVPGKJM2WZNGeaNGiaNmiaQ16DXHSUTXmmZnqaVoCqaI6zb5K2cIOhcImndo2od5Kte5y+Vo7GYZbKYpfLY5fLZJjLZpnMaJrMaJrNaZvNcaDQdaPRd6TSe6fTkKa8k6m/iKXDiqfEgqzVnK/CmbPMlbjcm73eoK/Crb7Or73NqL3Tq7/Us77OtcHPtcTStMjavcfVuMrcosHgpMLgpsPhqcbjsMrkvNLpvdPpws3Zws7axdDbxdLdxNLhx9Xkxdntytfkytfly9nmydvtydzu0dzn1uDq3+Xr0ODw0+Hw1OPw3Oj03un03un13+r04OXr4efu4uju5ejt4+vy4uz25+zx5Oz25e735u736e/16PD37vL17vL27vT58/b58vb79Pb59ff59Pj79/n79vr8+fv7+Pr9+fv8+vz9+/3+/P3+/P7//v7//v/////+////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5Mku6gAAANpJREFUeNpj6OlhaBBkAJJMsUAypQNIOFoBiZoehp5wyQAGDuUCEyDXvRFI9PQkV+v1MHRxsXnxx+caM/QU+brqqPXYg6V6QtN7IIyEHgjDNjEYzJCO9jDvYdBm54uMkEstZxBjYah0UMjKZujxbOHtUXfqBCuW6LGEajeCaoeADIPANoRAe5yURre/USlQoMlFVTMsT1S2R1elO8iilaFWmJOZkVWpWsi6TDGq0CyTocdNhJtHPN9GIMdHviLGtApqhrdWnZ1MUolhCMKWZL9mZ/00FGvri0EkAEeeZN5rqBVpAAAAAElFTkSuQmCC</os:Image>
+<UpdateInterval>7</UpdateInterval>
+<UpdateUrl>http://mycroft.mozdev.org/update.php/id0/Wikiquote-pt.src</UpdateUrl>
+<IconUpdateUrl>http://mycroft.mozdev.org/update.php/id0/Wikiquote-pt.png</IconUpdateUrl>
+<SearchForm>http://pt.wikiquote.org/wiki/Special:Search</SearchForm>
+<os:Url type="text/html" method="GET" template="http://pt.wikiquote.org/wiki/Special:Search?search={searchTerms}&amp;fulltext=Search&amp;sourceid=mozilla-search&amp;offset=0">
+</os:Url>
+</SearchPlugin>
