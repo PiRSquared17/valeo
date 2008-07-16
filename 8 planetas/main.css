@@ -24,7 +24,7 @@ A:hover {color: #fff; text-decoration: none}
 #rs_next {display:none;cursor:pointer;position:absolute;top:0px;right:100px;}
 #rs_prev {display:none;cursor:pointer;position:absolute;top:20px;left:100px;}
 
-#footer {position:absolute;top:50px;border-top:1px solid #fff;width: 300px;margin: 1em 0;padding: 1em 20px;color: #fff;font-size: 80%;}
+#footer {top:50px;border-top:1px solid #fff;width: 300px;margin: 1em 0;padding: 1em 20px;color: #fff;font-size: 80%;}
 #footer a:link,
 #footer a:visited,
 #footer a:hover,

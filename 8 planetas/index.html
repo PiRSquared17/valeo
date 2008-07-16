@@ -2,57 +2,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt_BR" lang="pt_BR">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ansi-code" />
-<title>Sistema solar</title>
+<title>8 planetas</title>
+
+<!-- Librarys -->
 <script src="jquery.js" type="text/javascript"></script>
 <script src="rotator.js" type="text/javascript"></script>
+<script src="over.js" type="text/javascript"></script>
+
+<!-- Informações dos Planetas -->
+<script src="popupmer.js" type="text/javascript"></script>
+<script src="popupven.js" type="text/javascript"></script>
+<script src="popupter.js" type="text/javascript"></script>
+<script src="popupmar.js" type="text/javascript"></script>
+<script src="popupjup.js" type="text/javascript"></script>
+<script src="popupsat.js" type="text/javascript"></script>
+<script src="popupura.js" type="text/javascript"></script>
+<script src="popupnet.js" type="text/javascript"></script>
+
+<!-- Google Analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 <link href="main.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript">
-
-$(document).ready(function(){
-   $("#rotation_control").click( function() {
-     (rotate) ? rotate = false : rotate = true;
-    (rotate) ? $(this).children().src("stop.png") :  $(this).children().src("rotate.png");
-     run();
-   });
-   items = $("#links .name");
-   items.cartesianToSphereical();
-   rotate = true;
-   run();
-   de = document.documentElement;
-   w = window.innerWidth || self.innerWidth || (de && de.clientWidth) || document.body.clientWidth;
-   h = window.innerHeight || self.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
-   items.hover(function(){ 
-     $(this).addClass("over");
-
-   },function(){
-     $(this).removeClass("over");
-
-   });
-});
-</script>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
 <script type="text/javascript">
 _uacct = "UA-945946-3";
 urchinTracker();
 </script>
-
-<script type="text/javascript">
-function showstats() {
-    document.getElementById('stats').style.display=''
-    return;
-}
-</script>
-
 </head>
 
+<!-- Corpo do código -->
 <body>
 
-<DIV STYLE="display: none; position: absolute; background: white; color:black;
-border: 1px dashed #6699AA; padding: 1em" ID="stats" onClick="this.style.display='none';">
+<!-- Popups para cada planeta -->
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupjup" onClick="this.style.display='none';">
 <CENTER>
-<H4>Planeta 1</H4>
+<H4>Júpiter</H4>
 <TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
 STYLE="border: blue 1px solid; margin: 10px;">
 <TH><TD>
@@ -99,49 +82,402 @@ etestetetstestetess
 <BR>
 etestetetstestetess
 <BR>
-etestetetstestetess
-<BR>
-etestetetstestetess
-<BR>
-etestetetstestetess
-<BR>
-etestetetstestetess
-<BR>
-etestetetstestetess
-<BR>
-etestetetstestetess
 </DIV>
 
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupmar" onClick="this.style.display='none';">
+<CENTER>
+<H4>Marte</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupmer" onClick="this.style.display='none';">
+<CENTER>
+<H4>Mercúrio</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupnet" onClick="this.style.display='none';">
+<CENTER>
+<H4>Netuno</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupsat" onClick="this.style.display='none';">
+<CENTER>
+<H4>Saturno</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupter" onClick="this.style.display='none';">
+<CENTER>
+<H4>Terra</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupura" onClick="this.style.display='none';">
+<CENTER>
+<H4>Urano</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<DIV STYLE="display: none; position: absolute; background:white; color:black;
+border: 1px dashed #6699AA; padding: 1em" ID="popupven" onClick="this.style.display='none';">
+<CENTER>
+<H4>Vênus</H4>
+<TABLE CELLPADDING="3" CELLSPACING="0" BORDER="0"
+STYLE="border: blue 1px solid; margin: 10px;">
+<TH><TD>
+Jul
+</TD><TD>
+ Aug 
+</TD><TD>
+ Sep 
+</TD><TD>
+ Oct 
+</TD>
+
+</TD></TH><TR id="price0"><TD>
+Teste
+<BR>Teste Teste
+</TD><TD>
+ 143 
+</TD><TD>
+ 160 
+</TD><TD>
+ 152 
+</TD><TD>
+ 157 
+</TD>
+
+</TD></TH><TR ID="price2"><TD>
+Total teste
+</TD><TD>
+ 1577 
+</TD><TD>
+ 1892 
+</TD><TD>
+ 1997 
+</TD><TD>
+ 2355 
+</TD>
+</TR>
+</TABLE>
+
+<SMALL>
+</SMALL>
+</CENTER>
+etestetetstestetess
+<BR>
+etestetetstestetess
+<BR>
+</DIV>
+
+<!-- Imagem do Sol -->
 <div id="x_axis">
    <div id="y_axis">
        <img id="world" src="sun.jpg" alt="Sol" />
        <div id="links">
-   
-<div class="name" posX="500"   posY="0"     posZ="0"><A HREF="javascript: showstats()">Mercúrio</a></div>
-<div class="name" posX="-500"  posY="0"     posZ="0"><A HREF="javascript: showstats()">Vênus</a></div>
-<div class="name" posX="0"     posY="500"   posZ="0"><A HREF="javascript: showstats()">Terra</a></div>
-<div class="name" posX="0"     posY="-500"  posZ="0"><A HREF="javascript: showstats()">Marte</a></div>
-<div class="name" posX="300"   posY="400"   posZ="0"><A HREF="javascript: showstats()">Júpiter</a></div>
-<div class="name" posX="-300"  posY="400"   posZ="0"><A HREF="javascript: showstats()">Saturno</a></div>
-<div class="name" posX="300"   posY="-400"  posZ="0"><A HREF="javascript: showstats()">Urano</a></div>
-<div class="name" posX="-300"  posY="-400"  posZ="0"><A HREF="javascript: showstats()">Netuno</a></div>
 
+<!-- Posição das rotações -->
+<div class="name" posX="500"   posY="0"     posZ="0"><A HREF="javascript: popupmer()">Mercúrio</a></div>
+<div class="name" posX="-500"  posY="0"     posZ="0"><A HREF="javascript: popupven()">Vênus</a></div>
+<div class="name" posX="0"     posY="500"   posZ="0"><A HREF="javascript: popupter()">Terra</a></div>
+<div class="name" posX="0"     posY="-500"  posZ="0"><A HREF="javascript: popupmar()">Marte</a></div>
+<div class="name" posX="300"   posY="400"   posZ="0"><A HREF="javascript: popupjup()">Júpiter</a></div>
+<div class="name" posX="-300"  posY="400"   posZ="0"><A HREF="javascript: popupsat()">Saturno</a></div>
+<div class="name" posX="300"   posY="-400"  posZ="0"><A HREF="javascript: popupura()">Urano</a></div>
+<div class="name" posX="-300"  posY="-400"  posZ="0"><A HREF="javascript: popupnet()">Netuno</a></div>
 
 </div>
 </div>
 </div>
 <div id="debug"></div>
 
+<!--  Botão da rotação -->
 <div id="frame">
 
-<div id="rotation_control" class="f1"><img src="stop.png" alt="" width="30" height="29" /><font color="#C0C0C0">Parar de rodar</font></div> 
+<div id="rotation_control" class="f1"><img src="stop.png" alt="Rotação" width="30" height="29" /><font color="white">Rotação</font></div> 
 </div>
 
+<!-- Notas -->
 <ul id="footer">
 	<li>Baseado no site <a href="http://www.worldfirefoxday.com/">www.worldfirefoxday.com</a></li>
-
-	<li><a href="http://www.mozilla.com/privacy-policy.html">Política de Privacidade Mozilla</a></li><br />
-
     <li><a href="http://valeo.googlecode.com/svn/trunk/8 planetas/">Código fonte deste site</a></li><br />   
 </ul>
 
