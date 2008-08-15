@@ -13,15 +13,15 @@ from Tkinter import Tk, Label
 ##################### User preferences #####################
 
 # Hours
-hours = '23'
+hours = '09'
 
 # Minutes
-minutes = '49'
+minutes = '26'
 
 # Your alerts: beep, dialog, fullscreen
 #alert = "beep"
-#alert = "dialog"
-alert = "fullscreen"
+alert = "dialog"
+#alert = "fullscreen"
 
 ############################################################
 
@@ -48,7 +48,7 @@ def dialog():
     tkMessageBox.showwarning('Live Alarm', u'''\
 Live Alarm
 
-Now are %s:%s hrs''' % (hours_now, minutes_now))
+Now are %s:%s hrs''' % (hours, minutes))
 
 def Alarm():
     hours_now = time.strftime("%H", time.localtime())
