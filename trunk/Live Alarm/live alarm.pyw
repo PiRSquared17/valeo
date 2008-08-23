@@ -6,6 +6,7 @@ if sys.platform == "win32":
     beep = True
 else:
     #todo: linux sound 
+    beep = False
     pass
 
 from Tkinter import Tk, Label
@@ -13,15 +14,15 @@ from Tkinter import Tk, Label
 ##################### User preferences #####################
 
 # Hours
-hours = '09'
+hours = '18'
 
 # Minutes
-minutes = '26'
+minutes = '55'
 
 # Your alerts: beep, dialog, fullscreen
 #alert = "beep"
-alert = "dialog"
-#alert = "fullscreen"
+#alert = "dialog"
+alert = "fullscreen"
 
 ############################################################
 
