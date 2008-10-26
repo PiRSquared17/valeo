@@ -1,0 +1,120 @@
+
+  23: udi = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0_printer_BR75GFK0TR04ND'
+  linux.hotplug_type = 2 (0x2)
+  info.subsystem = 'usb'
+  info.product = 'Deskjet D1300 series'
+  printer.device = '/dev/usb/lp0'
+  linux.subsystem = 'usb'
+  linux.device_file = '/dev/usb/lp0'
+  printer.originating_device = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0'
+  info.udi = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0_printer_BR75GFK0TR04ND'
+  printer.vendor = 'HP'
+  printer.product = 'Deskjet D1300 series'
+  printer.serial = 'BR75GFK0TR04ND'
+  info.category = 'printer'
+  printer.description = 'D1360'
+  linux.sysfs_path = '/sys/devices/pci0000:00/0000:00:1d.3/usb5/5-2/5-2:1.0/usb/lp0'
+  info.capabilities = { 'printer' }
+  printer.commandset = { 'LDL' }
+  info.parent = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0'
+  info.vendor = 'HP'
+
+  76: udi = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0'
+  usb.linux.sysfs_path = '/sys/devices/pci0000:00/0000:00:1d.3/usb5/5-2/5-2:1.0'
+  usb.device_revision_bcd = 256 (0x100)
+  usb.configuration_value = 1 (0x1)
+  usb.max_power = 2 (0x2)
+  info.subsystem = 'usb'
+  usb.num_configurations = 1 (0x1)
+  info.product = 'USB Printer Interface'
+  usb.num_ports = 0 (0x0)
+  info.udi = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0'
+  usb.num_interfaces = 1 (0x1)
+  usb.linux.device_number = 3 (0x3)
+  usb.device_class = 0 (0x0)
+  usb.serial = 'BR75GFK0TR04ND'
+  usb.device_subclass = 0 (0x0)
+  linux.hotplug_type = 2 (0x2)
+  usb.speed = 12.0000
+  linux.subsystem = 'usb'
+  usb.device_protocol = 0 (0x0)
+  usb.version = 2.00000
+  usb.vendor_id = 1008 (0x3f0)
+  usb.is_self_powered = true
+  usb.product_id = 30724 (0x7804)
+  usb.can_wake_up = false
+  usb.interface.number = 0 (0x0)
+  usb.interface.class = 7 (0x7)
+  usb.interface.subclass = 1 (0x1)
+  usb.interface.protocol = 2 (0x2)
+  linux.sysfs_path = '/sys/devices/pci0000:00/0000:00:1d.3/usb5/5-2/5-2:1.0'
+  info.parent = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND'
+  usb.vendor = 'HP'
+  info.linux.driver = 'usblp'
+  usb.bus_number = 5 (0x5)
+  usb.product = 'USB Printer Interface'
+
+  77: udi = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND'
+  info.subsystem = 'usb_device'
+  usb_device.vendor = 'HP'
+  usb_device.bus_number = 5 (0x5)
+  linux.hotplug_type = 2 (0x2)
+  usb_device.product = 'Deskjet D1300 series'
+  info.product = 'Deskjet D1300 series'
+  linux.subsystem = 'usb'
+  linux.device_file = '/dev/bus/usb/005/003'
+  usb_device.linux.sysfs_path = '/sys/devices/pci0000:00/0000:00:1d.3/usb5/5-2'
+  usb_device.device_revision_bcd = 256 (0x100)
+  info.udi = '/org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND'
+  usb_device.configuration_value = 1 (0x1)
+  usb_device.max_power = 2 (0x2)
+  usb_device.num_configurations = 1 (0x1)
+  usb_device.num_ports = 0 (0x0)
+  usb_device.num_interfaces = 1 (0x1)
+  usb_device.linux.device_number = 3 (0x3)
+  usb_device.device_class = 0 (0x0)
+  usb_device.serial = 'BR75GFK0TR04ND'
+  linux.sysfs_path = '/sys/devices/pci0000:00/0000:00:1d.3/usb5/5-2'
+  usb_device.device_subclass = 0 (0x0)
+  usb_device.speed = 12.0000
+  info.parent = '/org/freedesktop/Hal/devices/usb_device_1d6b_1_0000_00_1d_3'
+  usb_device.device_protocol = 0 (0x0)
+  info.vendor = 'HP'
+  usb_device.version = 2.00000
+  usb_device.vendor_id = 1008 (0x3f0)
+  usb_device.is_self_powered = true
+  info.linux.driver = 'usb'
+  usb_device.product_id = 30724 (0x7804)
+  usb_device.can_wake_up = false
+
+
+=========== end debug info ============
+52: USB 00.0: 10900 Printer
+  [Created at usb.122]
+  UDI: /org/freedesktop/Hal/devices/usb_device_3f0_7804_BR75GFK0TR04ND_if0_printer_BR75GFK0TR04ND
+  Unique ID: wn1q.32iKgRSs3vD
+  Parent ID: 2XnU.CCckIHJirFC
+  SysFS ID: /devices/pci0000:00/0000:00:1d.3/usb5/5-2/5-2:1.0
+  SysFS BusID: 5-2:1.0
+  Hardware Class: printer
+  Model: "D1360"
+  Hotplug: USB
+  Vendor: usb 0x03f0 "HP"
+  Device: usb 0x7804 "Deskjet D1300 series"
+  SubVendor: "HP"
+  SubDevice: "Deskjet D1300 series"
+  Revision: "1.00"
+  Serial ID: "BR75GFK0TR04ND"
+  Driver: "usblp"
+  Driver Modules: "usblp"
+  Device File: /dev/usb/lp0
+  Device Files: /dev/usb/lp0, /dev/usblp0, /dev/par0
+  Device Number: char 180:0
+  Speed: 12 Mbps
+  Module Alias: "usb:v03F0p7804d0100dc00dsc00dp00ic07isc01ip02"
+  Driver Info #0:
+    Driver Status: usblp is active
+    Driver Activation Cmd: "modprobe usblp"
+  Config Status: cfg=no, avail=yes, need=no, active=unknown
+  Attached to: #55 (Hub)
+
