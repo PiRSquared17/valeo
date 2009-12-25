@@ -12,7 +12,7 @@ import win32api, win32gui, win32con
 from PIL import Image, ImageDraw, ImageFont
 
 from time import sleep
-sleep(60)
+sleep(5*60)
 
 class DesktopWallpaper:
     def __init__(self, proxy=None):
