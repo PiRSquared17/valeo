@@ -1,0 +1,1 @@
+#!/usr/bin/env pythonimport urllib2, re, os, time, webbrowserxml = urllib2.urlopen('http://www.xkcd.com/rss.xml')content = xml.read()p = re.compile('http://imgs.xkcd.com/comics/\w*\.png')last = p.findall(content)webbrowser.open(last[0])
