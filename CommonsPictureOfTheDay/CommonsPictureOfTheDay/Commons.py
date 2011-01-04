@@ -4,7 +4,6 @@ from wikipedia import Site, Page, ImagePage
 from PIL import Image, ImageDraw, ImageFont
 import httplib, time, sys, os
 import ctypes, win32con
-from winsound import Beep
 
 def get_commons_image(image):
     headers = {"Accept": "image/jpg",
@@ -45,7 +44,7 @@ if __name__ == '__main__':
     
     commons = Site('commons', 'commons')
     date_today = time.strftime('%Y-%m-%d', time.localtime())
-    template = 'Template:Potd/%s' % date_today
+    template = 'Template:Potd/%s_(en)' % date_today
     templatePage = Page(commons, template)
     image_today = templatePage.get()
     image_name = 'Image:%s'% image_today
@@ -63,4 +62,3 @@ if __name__ == '__main__':
 
     set_wallpaper_win32()
     
-    Beep(1200, 250) # 1/4 seg.
