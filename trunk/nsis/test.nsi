@@ -1,8 +1,3 @@
-/*
-Intelecto Tecnologia e Sistemas
-Instalador dos Sistemas Intesig
-*/
-
 !include MUI.nsh
 !include LogicLib.nsh
 !include WinMessages.nsh
@@ -16,35 +11,35 @@ Section "-PosicaoTela"
 	Call Inicio
 SectionEnd
 
-Function "Intesig"
+Function "Test"
 	CreateDirectory "$INSTDIR"
 FunctionEnd
 
 #--------------------------------
-# Privilégios de usuário para instalação do INTESIG no Windows Vista
+# Privilégios de usuário para instalação no Windows Vista
 RequestExecutionLevel admin
 
 XPStyle on
-Name "INTESIG"
-OutFile "INTESIG.exe"
-InstallDir "C:\INTESIG"
+Name "Test"
+OutFile "Test.exe"
+InstallDir "C:\Test"
 
 #--------------------------------
 # Texto do rodapé
-BrandingText "Intelecto Tecnologia e Sistemas"
+BrandingText "Test"
 
 #--------------------------------
 # Logotipo no topo
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "..\INTESIG\Imagens\intesig.bmp"
-!define MUI_ICON "..\INTESIG\Imagens\icone.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "..\INTESIG\Imagens\intelecto.bmp"
+!define MUI_HEADERIMAGE_BITMAP "..\Test\Imagens\Test.bmp"
+!define MUI_ICON "..\Test\Imagens\icone.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "..\Test\Imagens\Test.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 
 #--------------------------------
 # Páginas
 Page custom nsDialogsWelcome
-#!insertmacro MUI_PAGE_DIRECTORY # Escolha do diretório de instalação do Intesig, padrão C:\INTESIG
+#!insertmacro MUI_PAGE_DIRECTORY # Escolha do diretório de instalação do Test, padrão C:\Test
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
 
@@ -66,11 +61,11 @@ Function .onInit
     System::Call 'kernel32::CreateMutexA(i 0, i 0, t "myMutex") i .r1 ?e'
     Pop $R0
     StrCmp $R0 0 +3
-    MessageBox MB_OK|MB_ICONEXCLAMATION "O INTESIG já está sendo instalado neste computador!"
+    MessageBox MB_OK|MB_ICONEXCLAMATION "O Test já está sendo instalado neste computador!"
     Abort
     CreateFont $HEADLINE_FONT "$(^Font)" "14" "500"
     InitPluginsDir
-    File /oname=$TEMP\intelecto.bmp "..\INTESIG\Imagens\intelecto.bmp"
+    File /oname=$TEMP\Test.bmp "..\Test\Imagens\Test.bmp"
   
 FunctionEnd
 
@@ -138,7 +133,7 @@ Function nsDialogsWelcome
     nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${SS_BITMAP} 0 0 0 109u 193u ""
     Pop $IMAGECTL
 
-    StrCpy $0 "..\INTESIG\Imagens\intelecto.bmp"
+    StrCpy $0 "..\Test\Imagens\Test.bmp"
     System::Call 'user32::LoadImage(i 0, t r0, i ${IMAGE_BITMAP}, i 0, i 0, i ${LR_LOADFROMFILE}) i.s'
     Pop $IMAGE
 	
@@ -150,7 +145,7 @@ Function nsDialogsWelcome
     CreateFont $1 "Verdana" "18" "650" /UNDERLINE
     SendMessage $HEADLINE ${WM_SETFONT} $1 1
 
-    nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 115u 25u -130u -20u "$\r$\nDepois de instalado o sistema, a primeira vez que iniciar o INTESIG tem que ser pelo servidor. Digite o usuário, senha e logo depois aparecerá a tela de liberação do sistema, anote a data de validade, o número do contrato e o número da identificação e em seguida entre em contato com o setor administrativo da Intelecto pelo telefone (65) 3314-3300 repassando as informações para obter a senha de liberação do sistema.$\r$\n$\r$\nDepois de obtido a liberação, é necessário acessar o site da Intelecto, entrar na opção Portal do Cliente, fornecer o número do contrato e senha e fazer o download dos módulos habilitados para sua empresa.$\r$\n$\r$\n Intelecto Tecnologia e Sistemas $\n www.intelecto.com.br $\n E-mail: atendimento@intelecto.com.br $\n Suporte Técnico (65) 3314-3300"
+    nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 115u 25u -130u -20u "$\r$\n(...).$\r$\n$\r$\n(...)$\r$\n$\r$\n (...) $\n www.test.com.br $\n E-mail: test@Test.com.br $\n "
     Pop $TEXT
 	
     SetCtlColors $DIALOG "" 0xffffff
@@ -178,17 +173,17 @@ Section "Sybase" SecSybase
     DetailPrint "Instalando o Sybase, aguarde....."
     MessageBox MB_OK 'Na próxima tela, escolha o país "Brazil", marque a opção "I accept" em seguida clique sobre o botão "Next".$\r$\n'
 
-    ExecWait '..\INTESIG\Sybase\setup.exe'
+    ExecWait '..\Test\Sybase\setup.exe'
 	
     DetailPrint "Instalação do Sybase .....concluído!"
 
     DetailPrint "Instalando a 1ª atualização do Sybase, aguarde....."
-    ExecWait '..\INTESIG\Atualização1\setup.exe'
+    ExecWait '..\Test\Atualização1\setup.exe'
     DetailPrint "Instalação da 1ª atualização do Sybase .....concluído!"
     DetailPrint ""
 
     DetailPrint "Instalando a 2ª atualização do Sybase, aguarde....."
-    ExecWait '..\INTESIG\Atualização2\setup.exe'
+    ExecWait '..\Test\Atualização2\setup.exe'
     DetailPrint "Instalação da 2ª atualização do Sybase .....concluído!"
     DetailPrint ""
 SectionEnd
@@ -196,16 +191,16 @@ SectionEnd
 #----------------------------
 # ODBC
 Section "Configuração do ODBC" SecOdbc
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\ODBC Data Sources" "INTESIG" "Adaptive Server Anywhere 9.0"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "Driver" "$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbodbc9.dll"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "EngineName" "BDINTESIG"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "AutoStop" "Yes"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "Integrated" "No"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "Debug" "No"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "DisableMultiRowFetch" "No"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "CommLinks" "SharedMemory,TCPIP{}"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "Compress" "No"
-    WriteRegStr HKLM "Software\ODBC\ODBC.INI\INTESIG" "Delphi" "Yes"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\ODBC Data Sources" "Test" "Adaptive Server Anywhere 9.0"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "Driver" "$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbodbc9.dll"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "EngineName" "BDTest"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "AutoStop" "Yes"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "Integrated" "No"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "Debug" "No"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "DisableMultiRowFetch" "No"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "CommLinks" "SharedMemory,TCPIP{}"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "Compress" "No"
+    WriteRegStr HKLM "Software\ODBC\ODBC.INI\Test" "Delphi" "Yes"
     WriteRegStr HKLM "Software\Borland\Database Engine\Settings\DRIVERS\SYBASE\DB OPEN" "TDS PACKET SIZE" "8192"
     DetailPrint "Configuração do ODBC .....concluído!"
     DetailPrint ""
@@ -215,11 +210,11 @@ SectionEnd
 # BDE
 Section "BDE" SecBde
     DetailPrint "Instalando o BDE, aguarde....."
-    ExecWait '..\INTESIG\BDE\SETUP.EXE'
+    ExecWait '..\Test\BDE\SETUP.EXE'
     Sleep 15000 # 15 segundos para instalar BDE
     CreateDirectory "$PROGRAMFILES\Borland\Common Files\BDE\"
-    File "/oname=$PROGRAMFILES\Borland\Common Files\BDE\IDAPI.CFG" ..\INTESIG\BDE\IDAPI.CFG
-    File "/oname=$PROGRAMFILES\Borland\Common Files\BDE\IDAPI32.CFG" ..\INTESIG\BDE\IDAPI32.CFG
+    File "/oname=$PROGRAMFILES\Borland\Common Files\BDE\IDAPI.CFG" ..\Test\BDE\IDAPI.CFG
+    File "/oname=$PROGRAMFILES\Borland\Common Files\BDE\IDAPI32.CFG" ..\Test\BDE\IDAPI32.CFG
     DetailPrint "Instalação do BDE .....concluído!"
     DetailPrint ""
 SectionEnd
@@ -240,69 +235,69 @@ SectionEnd
 # DllInsc32 na pasta system32
 
 Section "DllInscE32.dll" SecInsc
-    File /oname=$SYSDIR\DllInscE32.dll "..\INTESIG\dll\DllInscE32.dll"
+    File /oname=$SYSDIR\DllInscE32.dll "..\Test\dll\DllInscE32.dll"
     DetailPrint "Instalação da DllInsc32 ..... concluído!"
     DetailPrint ""
 SectionEnd
 
 #----------------------------
-# Criando atalho do Intesig para estações
+# Criando atalho do Test para estações
 Section "Atalhos para Estação" SecEstacao
 
-    # Cria pasta C:\INTESIG
-    Call Intesig
+    # Cria pasta C:\Test
+    Call Test
 
     Exec '"$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dblang.exe" -q PT'
-    File /oname=$INSTDIR\IntesigBAR_SENHA.exe "..\INTESIG\Executáveis\IntesigBAR_SENHA.exe"
+    File /oname=$INSTDIR\TestBAR_SENHA.exe "..\Test\Executáveis\Test.exe"
 
-    File /oname=$INSTDIR\BemaFI32.dll "..\INTESIG\dll\BemaFI32.dll"
-    File /oname=$INSTDIR\BioNetAcsDLL.dll "..\INTESIG\dll\BioNetAcsDLL.dll"
-    File /oname=$INSTDIR\borlndmm.dll "..\INTESIG\dll\borlndmm.dll"
-    File /oname=$INSTDIR\CapPluginCertis.dll "..\INTESIG\dll\CapPluginCertis.dll"
-    File /oname=$INSTDIR\CapPluginCrossMatch.dll "..\INTESIG\dll\CapPluginCrossMatch.dll"
-    File /oname=$INSTDIR\CapPluginFingercap.dll "..\INTESIG\dll\CapPluginFingercap.dll"
-    File /oname=$INSTDIR\CapPluginHamster.dll "..\INTESIG\dll\CapPluginHamster.dll"
-    File /oname=$INSTDIR\CertisExports.dll "..\INTESIG\dll\CertisExports.dll"
-    File /oname=$INSTDIR\CONVECF95.dll "..\INTESIG\dll\CONVECF95.dll"
-    File /oname=$INSTDIR\CONVECF.dll "..\INTESIG\dll\CONVECF.dll"
-    File /oname=$INSTDIR\CONVERSOR.dll "..\INTESIG\dll\CONVERSOR.dll"
-    File /oname=$INSTDIR\DAO350.DLL "..\INTESIG\dll\DAO350.DLL"
-    File /oname=$INSTDIR\Daruma32.dll "..\INTESIG\dll\Daruma32.dll"
-    File /oname=$INSTDIR\DLLG2.dll "..\INTESIG\dll\DLLG2.dll"
-    File /oname=$INSTDIR\dbxmys30.dll "..\INTESIG\dll\dbxmys30.dll"
-    File /oname=$INSTDIR\DllInscE32.dll "..\INTESIG\dll\DllInscE32.dll"
-    File /oname=$INSTDIR\dpDevClt.dll "..\INTESIG\dll\dpDevClt.dll"
-    File /oname=$INSTDIR\dpDevDat.dll "..\INTESIG\dll\dpDevDat.dll"
-    File /oname=$INSTDIR\dpFpFns.dll "..\INTESIG\dll\dpFpFns.dll"
-    File /oname=$INSTDIR\dpFtrEx.dll "..\INTESIG\dll\dpFtrEx.dll"
-    File /oname=$INSTDIR\dpMatch.dll "..\INTESIG\dll\dpMatch.dll"
-    File /oname=$INSTDIR\Grafico.dll "..\INTESIG\dll\Grafico.dll"
-    File /oname=$INSTDIR\GrFinger.dll "..\INTESIG\dll\GrFinger.dll"
-    File /oname=$INSTDIR\GrFingerJava.dll "..\INTESIG\dll\GrFingerJava.dll"
-    File /oname=$INSTDIR\GrFingerX.dll "..\INTESIG\dll\GrFingerX.dll"
-    File /oname=$INSTDIR\Id3BiokeyDll.dll "..\INTESIG\dll\Id3BiokeyDll.dll"
-    File /oname=$INSTDIR\Imprime.dll "..\INTESIG\dll\Imprime.dll"
-    File /oname=$INSTDIR\IntesigRES.dll "..\INTESIG\dll\IntesigRES.dll"
-    File /oname=$INSTDIR\libmySQL.dll "..\INTESIG\dll\libmySQL.dll"
-    File /oname=$INSTDIR\Midas.dll "..\INTESIG\dll\Midas.dll"
-    File /oname=$INSTDIR\MP20FI32.DLL "..\INTESIG\dll\MP20FI32.DLL"
-    File /oname=$INSTDIR\NBioBSP.dll "..\INTESIG\dll\NBioBSP.dll"
-    File /oname=$INSTDIR\ntdll.dll "..\INTESIG\dll\ntdll.dll"
-    File /oname=$INSTDIR\pthreadVC2.dll "..\INTESIG\dll\pthreadVC2.dll"
-    File /oname=$INSTDIR\Swmfd-connectc5.dll "..\INTESIG\dll\Swmfd-connectc5.dll"
-    File /oname=$INSTDIR\Usb4xx.dll "..\INTESIG\dll\Usb4xx.dll"
-    File /oname=$INSTDIR\VBRUN300.DLL "..\INTESIG\dll\VBRUN300.DLL"
-    File /oname=$INSTDIR\VisualReport.dll "..\INTESIG\dll\VisualReport.dll"
-    File /oname=$INSTDIR\GrFingerAppletInstaller.jar "..\INTESIG\dll\GrFingerAppletInstaller.jar"
-    File /oname=$INSTDIR\GrFingerJava.jar "..\INTESIG\dll\GrFingerJava.jar"
-    File /oname=$INSTDIR\BemaFI32.ini "..\INTESIG\dll\BemaFI32.ini"
-    File /oname=$INSTDIR\CONVERSOR.INI "..\INTESIG\dll\CONVERSOR.INI"
-    File /oname=$INSTDIR\Desktop.ini "..\INTESIG\dll\Desktop.ini"
-    File /oname=$INSTDIR\Hp12c.INI "..\INTESIG\dll\Hp12c.INI"
-    File /oname=$INSTDIR\Qrdesign.INI "..\INTESIG\dll\Qrdesign.INI"
-    File /oname=$INSTDIR\WallPaper.ini "..\INTESIG\dll\WallPaper.ini"
+    File /oname=$INSTDIR\BemaFI32.dll "..\Test\dll\BemaFI32.dll"
+    File /oname=$INSTDIR\BioNetAcsDLL.dll "..\Test\dll\BioNetAcsDLL.dll"
+    File /oname=$INSTDIR\borlndmm.dll "..\Test\dll\borlndmm.dll"
+    File /oname=$INSTDIR\CapPluginCertis.dll "..\Test\dll\CapPluginCertis.dll"
+    File /oname=$INSTDIR\CapPluginCrossMatch.dll "..\Test\dll\CapPluginCrossMatch.dll"
+    File /oname=$INSTDIR\CapPluginFingercap.dll "..\Test\dll\CapPluginFingercap.dll"
+    File /oname=$INSTDIR\CapPluginHamster.dll "..\Test\dll\CapPluginHamster.dll"
+    File /oname=$INSTDIR\CertisExports.dll "..\Test\dll\CertisExports.dll"
+    File /oname=$INSTDIR\CONVECF95.dll "..\Test\dll\CONVECF95.dll"
+    File /oname=$INSTDIR\CONVECF.dll "..\Test\dll\CONVECF.dll"
+    File /oname=$INSTDIR\CONVERSOR.dll "..\Test\dll\CONVERSOR.dll"
+    File /oname=$INSTDIR\DAO350.DLL "..\Test\dll\DAO350.DLL"
+    File /oname=$INSTDIR\Daruma32.dll "..\Test\dll\Daruma32.dll"
+    File /oname=$INSTDIR\DLLG2.dll "..\Test\dll\DLLG2.dll"
+    File /oname=$INSTDIR\dbxmys30.dll "..\Test\dll\dbxmys30.dll"
+    File /oname=$INSTDIR\DllInscE32.dll "..\Test\dll\DllInscE32.dll"
+    File /oname=$INSTDIR\dpDevClt.dll "..\Test\dll\dpDevClt.dll"
+    File /oname=$INSTDIR\dpDevDat.dll "..\Test\dll\dpDevDat.dll"
+    File /oname=$INSTDIR\dpFpFns.dll "..\Test\dll\dpFpFns.dll"
+    File /oname=$INSTDIR\dpFtrEx.dll "..\Test\dll\dpFtrEx.dll"
+    File /oname=$INSTDIR\dpMatch.dll "..\Test\dll\dpMatch.dll"
+    File /oname=$INSTDIR\Grafico.dll "..\Test\dll\Grafico.dll"
+    File /oname=$INSTDIR\GrFinger.dll "..\Test\dll\GrFinger.dll"
+    File /oname=$INSTDIR\GrFingerJava.dll "..\Test\dll\GrFingerJava.dll"
+    File /oname=$INSTDIR\GrFingerX.dll "..\Test\dll\GrFingerX.dll"
+    File /oname=$INSTDIR\Id3BiokeyDll.dll "..\Test\dll\Id3BiokeyDll.dll"
+    File /oname=$INSTDIR\Imprime.dll "..\Test\dll\Imprime.dll"
+    File /oname=$INSTDIR\TestRES.dll "..\Test\dll\TestRES.dll"
+    File /oname=$INSTDIR\libmySQL.dll "..\Test\dll\libmySQL.dll"
+    File /oname=$INSTDIR\Midas.dll "..\Test\dll\Midas.dll"
+    File /oname=$INSTDIR\MP20FI32.DLL "..\Test\dll\MP20FI32.DLL"
+    File /oname=$INSTDIR\NBioBSP.dll "..\Test\dll\NBioBSP.dll"
+    File /oname=$INSTDIR\ntdll.dll "..\Test\dll\ntdll.dll"
+    File /oname=$INSTDIR\pthreadVC2.dll "..\Test\dll\pthreadVC2.dll"
+    File /oname=$INSTDIR\Swmfd-connectc5.dll "..\Test\dll\Swmfd-connectc5.dll"
+    File /oname=$INSTDIR\Usb4xx.dll "..\Test\dll\Usb4xx.dll"
+    File /oname=$INSTDIR\VBRUN300.DLL "..\Test\dll\VBRUN300.DLL"
+    File /oname=$INSTDIR\VisualReport.dll "..\Test\dll\VisualReport.dll"
+    File /oname=$INSTDIR\GrFingerAppletInstaller.jar "..\Test\dll\GrFingerAppletInstaller.jar"
+    File /oname=$INSTDIR\GrFingerJava.jar "..\Test\dll\GrFingerJava.jar"
+    File /oname=$INSTDIR\BemaFI32.ini "..\Test\dll\BemaFI32.ini"
+    File /oname=$INSTDIR\CONVERSOR.INI "..\Test\dll\CONVERSOR.INI"
+    File /oname=$INSTDIR\Desktop.ini "..\Test\dll\Desktop.ini"
+    File /oname=$INSTDIR\Hp12c.INI "..\Test\dll\Hp12c.INI"
+    File /oname=$INSTDIR\Qrdesign.INI "..\Test\dll\Qrdesign.INI"
+    File /oname=$INSTDIR\WallPaper.ini "..\Test\dll\WallPaper.ini"
 	
-    CreateShortCut "$DESKTOP\INTESIG.lnk" "$INSTDIR\IntesigBAR.exe" "TCPIP"
+    CreateShortCut "$DESKTOP\Test.lnk" "$INSTDIR\TestBAR.exe" "TCPIP"
     DetailPrint "Configuração para Estações ..... concluído!"
     DetailPrint ""
 SectionEnd
@@ -311,111 +306,111 @@ SectionEnd
 # Instalar ícones para Servidor
 Section /o "Atalhos para Servidor" SecServidor
 
-    # Cria pasta C:\INTESIG
-    Call Intesig
+    # Cria pasta C:\Test
+    Call Test
 
     Exec '"$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dblang.exe" -q PT'
-    File /oname=$INSTDIR\IntesigBAR_SENHA.exe "..\INTESIG\Executáveis\IntesigBAR_SENHA.exe"
-    File /oname=$INSTDIR\Scktsrvr.exe "..\INTESIG\Executáveis\Scktsrvr.exe"
-    File /oname=$INSTDIR\INTESIGSVR.exe "..\INTESIG\Executáveis\INTESIGSVR.exe"
+    File /oname=$INSTDIR\TestBAR_SENHA.exe "..\Test\TestBAR_SENHA.exe"
+    File /oname=$INSTDIR\Scktsrvr.exe "..\Test\Scktsrvr.exe"
+    File /oname=$INSTDIR\TestSVR.exe "..\Test\TestSVR.exe"
 	
-    Exec "$INSTDIR\INTESIGSVR.exe"
+    Exec "$INSTDIR\TestSVR.exe"
     Sleep 2000
-    nsExec::Exec '"taskkill" /T /F /IM INTESIGSVR.exe'
+    nsExec::Exec '"taskkill" /T /F /IM TestSVR.exe'
     Sleep 2000
 	
     Exec '"taskkill" /T /F /IM Scktsrvr.exe'
     Sleep 2000
     Exec '"$INSTDIR\Scktsrvr.exe"'
 	
-	File /oname=$INSTDIR\BemaFI32.dll "..\INTESIG\dll\BemaFI32.dll"
-	File /oname=$INSTDIR\BioNetAcsDLL.dll "..\INTESIG\dll\BioNetAcsDLL.dll"
-	File /oname=$INSTDIR\borlndmm.dll "..\INTESIG\dll\borlndmm.dll"
-	File /oname=$INSTDIR\CapPluginCertis.dll "..\INTESIG\dll\CapPluginCertis.dll"
-	File /oname=$INSTDIR\CapPluginCrossMatch.dll "..\INTESIG\dll\CapPluginCrossMatch.dll"
-	File /oname=$INSTDIR\CapPluginFingercap.dll "..\INTESIG\dll\CapPluginFingercap.dll"
-	File /oname=$INSTDIR\CapPluginHamster.dll "..\INTESIG\dll\CapPluginHamster.dll"
-	File /oname=$INSTDIR\CertisExports.dll "..\INTESIG\dll\CertisExports.dll"
-	File /oname=$INSTDIR\CONVECF95.dll "..\INTESIG\dll\CONVECF95.dll"
-	File /oname=$INSTDIR\CONVECF.dll "..\INTESIG\dll\CONVECF.dll"
-	File /oname=$INSTDIR\CONVERSOR.dll "..\INTESIG\dll\CONVERSOR.dll"
-	File /oname=$INSTDIR\DAO350.DLL "..\INTESIG\dll\DAO350.DLL"
-	File /oname=$INSTDIR\Daruma32.dll "..\INTESIG\dll\Daruma32.dll"
-	File /oname=$INSTDIR\dbxmys30.dll "..\INTESIG\dll\dbxmys30.dll"
-	File /oname=$INSTDIR\DllInscE32.dll "..\INTESIG\dll\DllInscE32.dll"
-	File /oname=$INSTDIR\dpDevClt.dll "..\INTESIG\dll\dpDevClt.dll"
-	File /oname=$INSTDIR\dpDevDat.dll "..\INTESIG\dll\dpDevDat.dll"
-	File /oname=$INSTDIR\dpFpFns.dll "..\INTESIG\dll\dpFpFns.dll"
-	File /oname=$INSTDIR\dpFtrEx.dll "..\INTESIG\dll\dpFtrEx.dll"
-	File /oname=$INSTDIR\dpMatch.dll "..\INTESIG\dll\dpMatch.dll"
-    File /oname=$INSTDIR\DLLG2.dll "..\INTESIG\dll\DLLG2.dll"
-	File /oname=$INSTDIR\Grafico.dll "..\INTESIG\dll\Grafico.dll"
-	File /oname=$INSTDIR\GrFinger.dll "..\INTESIG\dll\GrFinger.dll"
-	File /oname=$INSTDIR\GrFingerJava.dll "..\INTESIG\dll\GrFingerJava.dll"
-	File /oname=$INSTDIR\GrFingerX.dll "..\INTESIG\dll\GrFingerX.dll"
-	File /oname=$INSTDIR\Id3BiokeyDll.dll "..\INTESIG\dll\Id3BiokeyDll.dll"
-	File /oname=$INSTDIR\Imprime.dll "..\INTESIG\dll\Imprime.dll"
-	File /oname=$INSTDIR\IntesigRES.dll "..\INTESIG\dll\IntesigRES.dll"
-	File /oname=$INSTDIR\libmySQL.dll "..\INTESIG\dll\libmySQL.dll"
-	File /oname=$INSTDIR\Midas.dll "..\INTESIG\dll\Midas.dll"
-	File /oname=$INSTDIR\MP20FI32.DLL "..\INTESIG\dll\MP20FI32.DLL"
-	File /oname=$INSTDIR\NBioBSP.dll "..\INTESIG\dll\NBioBSP.dll"
-	File /oname=$INSTDIR\ntdll.dll "..\INTESIG\dll\ntdll.dll"
-	File /oname=$INSTDIR\pthreadVC2.dll "..\INTESIG\dll\pthreadVC2.dll"
-	File /oname=$INSTDIR\Swmfd-connectc5.dll "..\INTESIG\dll\Swmfd-connectc5.dll"
-	File /oname=$INSTDIR\Usb4xx.dll "..\INTESIG\dll\Usb4xx.dll"
-	File /oname=$INSTDIR\VBRUN300.DLL "..\INTESIG\dll\VBRUN300.DLL"
-	File /oname=$INSTDIR\VisualReport.dll "..\INTESIG\dll\VisualReport.dll"
-	File /oname=$INSTDIR\GrFingerAppletInstaller.jar "..\INTESIG\dll\GrFingerAppletInstaller.jar"
-	File /oname=$INSTDIR\GrFingerJava.jar "..\INTESIG\dll\GrFingerJava.jar"
-	File /oname=$INSTDIR\BemaFI32.ini "..\INTESIG\dll\BemaFI32.ini"
-	File /oname=$INSTDIR\CONVERSOR.INI "..\INTESIG\dll\CONVERSOR.INI"
-	File /oname=$INSTDIR\Desktop.ini "..\INTESIG\dll\Desktop.ini"
-	File /oname=$INSTDIR\Hp12c.INI "..\INTESIG\dll\Hp12c.INI"
-	File /oname=$INSTDIR\Qrdesign.INI "..\INTESIG\dll\Qrdesign.INI"
-	File /oname=$INSTDIR\WallPaper.ini "..\INTESIG\dll\WallPaper.ini"
+	File /oname=$INSTDIR\BemaFI32.dll "..\Test\dll\BemaFI32.dll"
+	File /oname=$INSTDIR\BioNetAcsDLL.dll "..\Test\dll\BioNetAcsDLL.dll"
+	File /oname=$INSTDIR\borlndmm.dll "..\Test\dll\borlndmm.dll"
+	File /oname=$INSTDIR\CapPluginCertis.dll "..\Test\dll\CapPluginCertis.dll"
+	File /oname=$INSTDIR\CapPluginCrossMatch.dll "..\Test\dll\CapPluginCrossMatch.dll"
+	File /oname=$INSTDIR\CapPluginFingercap.dll "..\Test\dll\CapPluginFingercap.dll"
+	File /oname=$INSTDIR\CapPluginHamster.dll "..\Test\dll\CapPluginHamster.dll"
+	File /oname=$INSTDIR\CertisExports.dll "..\Test\dll\CertisExports.dll"
+	File /oname=$INSTDIR\CONVECF95.dll "..\Test\dll\CONVECF95.dll"
+	File /oname=$INSTDIR\CONVECF.dll "..\Test\dll\CONVECF.dll"
+	File /oname=$INSTDIR\CONVERSOR.dll "..\Test\dll\CONVERSOR.dll"
+	File /oname=$INSTDIR\DAO350.DLL "..\Test\dll\DAO350.DLL"
+	File /oname=$INSTDIR\Daruma32.dll "..\Test\dll\Daruma32.dll"
+	File /oname=$INSTDIR\dbxmys30.dll "..\Test\dll\dbxmys30.dll"
+	File /oname=$INSTDIR\DllInscE32.dll "..\Test\dll\DllInscE32.dll"
+	File /oname=$INSTDIR\dpDevClt.dll "..\Test\dll\dpDevClt.dll"
+	File /oname=$INSTDIR\dpDevDat.dll "..\Test\dll\dpDevDat.dll"
+	File /oname=$INSTDIR\dpFpFns.dll "..\Test\dll\dpFpFns.dll"
+	File /oname=$INSTDIR\dpFtrEx.dll "..\Test\dll\dpFtrEx.dll"
+	File /oname=$INSTDIR\dpMatch.dll "..\Test\dll\dpMatch.dll"
+    File /oname=$INSTDIR\DLLG2.dll "..\Test\dll\DLLG2.dll"
+	File /oname=$INSTDIR\Grafico.dll "..\Test\dll\Grafico.dll"
+	File /oname=$INSTDIR\GrFinger.dll "..\Test\dll\GrFinger.dll"
+	File /oname=$INSTDIR\GrFingerJava.dll "..\Test\dll\GrFingerJava.dll"
+	File /oname=$INSTDIR\GrFingerX.dll "..\Test\dll\GrFingerX.dll"
+	File /oname=$INSTDIR\Id3BiokeyDll.dll "..\Test\dll\Id3BiokeyDll.dll"
+	File /oname=$INSTDIR\Imprime.dll "..\Test\dll\Imprime.dll"
+	File /oname=$INSTDIR\TestRES.dll "..\Test\dll\TestRES.dll"
+	File /oname=$INSTDIR\libmySQL.dll "..\Test\dll\libmySQL.dll"
+	File /oname=$INSTDIR\Midas.dll "..\Test\dll\Midas.dll"
+	File /oname=$INSTDIR\MP20FI32.DLL "..\Test\dll\MP20FI32.DLL"
+	File /oname=$INSTDIR\NBioBSP.dll "..\Test\dll\NBioBSP.dll"
+	File /oname=$INSTDIR\ntdll.dll "..\Test\dll\ntdll.dll"
+	File /oname=$INSTDIR\pthreadVC2.dll "..\Test\dll\pthreadVC2.dll"
+	File /oname=$INSTDIR\Swmfd-connectc5.dll "..\Test\dll\Swmfd-connectc5.dll"
+	File /oname=$INSTDIR\Usb4xx.dll "..\Test\dll\Usb4xx.dll"
+	File /oname=$INSTDIR\VBRUN300.DLL "..\Test\dll\VBRUN300.DLL"
+	File /oname=$INSTDIR\VisualReport.dll "..\Test\dll\VisualReport.dll"
+	File /oname=$INSTDIR\GrFingerAppletInstaller.jar "..\Test\dll\GrFingerAppletInstaller.jar"
+	File /oname=$INSTDIR\GrFingerJava.jar "..\Test\dll\GrFingerJava.jar"
+	File /oname=$INSTDIR\BemaFI32.ini "..\Test\dll\BemaFI32.ini"
+	File /oname=$INSTDIR\CONVERSOR.INI "..\Test\dll\CONVERSOR.INI"
+	File /oname=$INSTDIR\Desktop.ini "..\Test\dll\Desktop.ini"
+	File /oname=$INSTDIR\Hp12c.INI "..\Test\dll\Hp12c.INI"
+	File /oname=$INSTDIR\Qrdesign.INI "..\Test\dll\Qrdesign.INI"
+	File /oname=$INSTDIR\WallPaper.ini "..\Test\dll\WallPaper.ini"
 
 	CreateDirectory "$INSTDIR\BD\"
 	#SetOverwrite off # Não sobrepõe banco de dados
-	#File /oname=$INSTDIR\BD\BDINTESIG.DB "..\INTESIG\Banco de Dados\BDINTESIG.DB"
+	#File /oname=$INSTDIR\BD\BDTest.DB "..\Test\Banco de Dados\BDTest.DB"
 	#SetOverwrite on # Sobrepõe arquivos novamente
 	
 	CreateDirectory "$INSTDIR\BD\SCRIPTS\"
-	CreateShortCut "$DESKTOP\BANCO DE DADOS.lnk" "$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" "-c 256M -n BDINTESIG $INSTDIR\BD\BDINTESIG.DB"
+	CreateShortCut "$DESKTOP\BANCO DE DADOS.lnk" "$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" "-c 256M -n BDTest $INSTDIR\BD\BDTest.DB"
 	CreateShortCut "$SMSTARTUP\Borland Socket Server.lnk" "$INSTDIR\Scktsrvr.exe"
-	CreateShortCut "$SMSTARTUP\BANCO DE DADOS.lnk" "$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" "-c 256M -n BDINTESIG $INSTDIR\BD\BDINTESIG.DB"
+	CreateShortCut "$SMSTARTUP\BANCO DE DADOS.lnk" "$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" "-c 256M -n BDTest $INSTDIR\BD\BDTest.DB"
     
-	CreateShortCut "$DESKTOP\INTESIG.lnk" "$INSTDIR\IntesigBAR_SENHA.exe" "LOCAL"
-	CreateShortCut "$DESKTOP\Site Intelecto.lnk" "$WINDIR\explorer.exe" "http://www.intelecto.com.br"
+	CreateShortCut "$DESKTOP\Test.lnk" "$INSTDIR\Test.exe" "LOCAL"
+	CreateShortCut "$DESKTOP\Site Test.lnk" "$WINDIR\explorer.exe" "http://www.Test.com.br"
 	
-	IfFileExists $INSTDIR\BD\BDINTESIG.DB ex1 done1
+	IfFileExists $INSTDIR\BD\BDTest.DB ex1 done1
 	ex1:
-		ExecWait '"$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" -f -c 256M -n BDINTESIG $INSTDIR\BD\BDINTESIG.DB'
+		ExecWait '"$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" -f -c 256M -n BDTest $INSTDIR\BD\BDTest.DB'
 		Sleep 5000 # 5 segundos para gerar o log
-		Exec '"$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" -c 256M -n BDINTESIG $INSTDIR\BD\BDINTESIG.DB'
+		Exec '"$PROGRAMFILES\Sybase\SQL Anywhere 9\win32\dbsrv9.exe" -c 256M -n BDTest $INSTDIR\BD\BDTest.DB'
 		Sleep 20000 # 20 segundos para iniciar banco de dados
 
 		# Configura o IP do Servidor no Registry
         ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName" "ComputerName"
 		StrCmp $0 "" win9x
 		StrCpy $1 $0 4 3
-		WriteRegStr HKCU "Software\Intesig" "Drive" "$0"
+		WriteRegStr HKCU "Software\Test" "Drive" "$0"
 		Goto done2
 		win9x:
 			ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName" "ComputerName"
 			StrCpy $1 $0 4 3 
-			WriteRegStr HKCU "Software\Intesig" "Drive" "$0"
+			WriteRegStr HKCU "Software\Test" "Drive" "$0"
 	    done2:
 			MessageBox MB_OK "IP do servidor é: \\$0 $\nAnote pois isto será solicitado nas estações."
 			DetailPrint "IP do servidor configurado."
 	done1:
         DetailPrint ""
 
-	# Trazer a primeira inicialização com a conexão INTESIG
-	WriteRegStr HKCU "Software\Intesig" "Conexao" "INTESIG"	
+	# Trazer a primeira inicialização com a conexão Test
+	WriteRegStr HKCU "Software\Test" "Conexao" "Test"	
 	
-	# Compartilhamento da pasta C:\INTESIG
-    nsExec::Exec 'net share INTESIG=C:\INTESIG'
+	# Compartilhamento da pasta C:\Test
+    nsExec::Exec 'net share Test=C:\Test'
 
 	DetailPrint "Configuração para Servidor ..... concluído!"
 	DetailPrint ""
