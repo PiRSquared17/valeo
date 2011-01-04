@@ -1,0 +1,6 @@
+
+
+* Embarcadero RAD Studio 2010
+* RxLib
+* ZeosLib
+* PostgreSQL
