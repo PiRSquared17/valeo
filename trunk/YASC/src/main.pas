@@ -18,8 +18,6 @@ type
     ZSQLMetadata: TZSQLMetadata;
     DSSQLMetadata: TDataSource;
     ZSQLMonitor: TZSQLMonitor;
-    ZSupermercadocodigo: TIntegerField;
-    ZSupermercadodescricao: TWideStringField;
     MainMenu1: TMainMenu;
     Cadastros1: TMenuItem;
     Supermercado1: TMenuItem;
@@ -37,7 +35,7 @@ type
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     procedure BitBtnSairClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,18 +60,16 @@ begin
    end;
 end;
 
-procedure TMainForm.FormShow(Sender: TObject);
+
+procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  with ZConnection do
-  begin
     try
-       //Connect;
-       //ZSupermercado.Active := True;
+       ZConnection.Connected;
+       Height := 179;
     except
        ShowMessage('Não foi possível conectar com o banco de dados!');
        Application.Terminate;
     end;
-  end;
 end;
 
 end.

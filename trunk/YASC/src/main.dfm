@@ -4,10 +4,10 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Yet Another Supermarket Control'
-  ClientHeight = 135
+  ClientHeight = 384
   ClientWidth = 743
   Color = clBtnFace
-  DefaultMonitor = dmDesktop
+  DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -15,7 +15,7 @@ object MainForm: TMainForm
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
-  OnShow = FormShow
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton1: TSpeedButton
@@ -5075,50 +5075,42 @@ object MainForm: TMainForm
   object ZConnection: TZConnection
     Protocol = 'postgresql-8'
     HostName = 'localhost'
-    Database = 'copa2014'
+    Database = 'yasc'
     User = 'postgres'
-    Password = 'zapzap'
+    Password = '123'
     AutoCommit = False
     ReadOnly = True
     Connected = True
-    Left = 118
+    Left = 342
     Top = 176
   end
   object ZSupermercado: TZQuery
     Connection = ZConnection
     SQL.Strings = (
-      'select * from cargo')
+      'select * from tbmercado')
     Params = <>
-    Left = 202
-    Top = 225
-    object ZSupermercadocodigo: TIntegerField
-      FieldName = 'codigo'
-      Required = True
-    end
-    object ZSupermercadodescricao: TWideStringField
-      FieldName = 'descricao'
-      Size = 80
-    end
+    Left = 466
+    Top = 241
   end
   object ZSQLMetadata: TZSQLMetadata
     Connection = ZConnection
     MetadataType = mdProcedures
-    Left = 186
+    Left = 450
     Top = 176
   end
   object DSSQLMetadata: TDataSource
     DataSet = ZSupermercado
-    Left = 110
-    Top = 227
+    Left = 374
+    Top = 243
   end
   object ZSQLMonitor: TZSQLMonitor
     Active = True
     MaxTraceCount = 100
-    Left = 266
+    Left = 530
     Top = 178
   end
   object MainMenu1: TMainMenu
-    Left = 16
+    Left = 248
     Top = 176
     object Cadastros1: TMenuItem
       Caption = 'Cadastros'
