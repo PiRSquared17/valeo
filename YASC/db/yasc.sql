@@ -2,7 +2,26 @@
 -- PostgreSQL database dump
 --
 
--- Started on 2011-01-04 00:20:32
+-- Started on 2011-01-04 22:42:09
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = off;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET escape_string_warning = off;
+
+--
+-- TOC entry 1809 (class 1262 OID 16401)
+-- Name: yasc; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE yasc WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'Portuguese, Brazil' LC_CTYPE = 'Portuguese, Brazil';
+
+
+ALTER DATABASE yasc OWNER TO postgres;
+
+\connect yasc
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -30,7 +49,7 @@ CREATE TABLE tbcompra (
     data_compra date NOT NULL,
     qtde integer,
     valor_unit numeric(15,2) DEFAULT 0,
-    usuario_compra "char",
+    usuario_compra name,
     cadastro date
 );
 
@@ -45,7 +64,7 @@ ALTER TABLE public.tbcompra OWNER TO postgres;
 
 CREATE TABLE tbmarca (
     codigo_marca integer NOT NULL,
-    descricao_marca "char" NOT NULL
+    descricao_marca name NOT NULL
 );
 
 
@@ -59,7 +78,7 @@ ALTER TABLE public.tbmarca OWNER TO postgres;
 
 CREATE TABLE tbmercado (
     codigo_merc integer NOT NULL,
-    descricao_merc "char" NOT NULL
+    descricao_merc name NOT NULL
 );
 
 
@@ -73,7 +92,7 @@ ALTER TABLE public.tbmercado OWNER TO postgres;
 
 CREATE TABLE tbproduto (
     codigo_prod integer NOT NULL,
-    descricao_prod "char" NOT NULL,
+    descricao_prod name NOT NULL,
     marca_prod integer NOT NULL,
     cadastro_prod date,
     unidade_prod integer NOT NULL
@@ -90,7 +109,7 @@ ALTER TABLE public.tbproduto OWNER TO postgres;
 
 CREATE TABLE tbunidade_produto (
     codigo_unidade integer NOT NULL,
-    descricao_unid "char" NOT NULL
+    descricao_unid name NOT NULL
 );
 
 
@@ -103,8 +122,8 @@ ALTER TABLE public.tbunidade_produto OWNER TO postgres;
 --
 
 CREATE TABLE tbusuario (
-    nome "char" NOT NULL,
-    senha "char" NOT NULL,
+    nome name NOT NULL,
+    senha name NOT NULL,
     situacao "char"
 );
 
@@ -220,7 +239,7 @@ ALTER TABLE ONLY tbunidade_produto
 
 
 --
--- TOC entry 1795 (class 2606 OID 16458)
+-- TOC entry 1795 (class 2606 OID 16552)
 -- Dependencies: 1505 1505
 -- Name: usuario; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
@@ -270,13 +289,13 @@ ALTER TABLE ONLY tbproduto
 
 
 --
--- TOC entry 1800 (class 2606 OID 16459)
+-- TOC entry 1800 (class 2606 OID 16572)
 -- Dependencies: 1794 1503 1505
--- Name: usuario_compra; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: usuario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tbcompra
-    ADD CONSTRAINT usuario_compra FOREIGN KEY (usuario_compra) REFERENCES tbusuario(nome);
+    ADD CONSTRAINT usuario FOREIGN KEY (usuario_compra) REFERENCES tbusuario(nome);
 
 
 --
@@ -291,7 +310,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2011-01-04 00:20:32
+-- Completed on 2011-01-04 22:42:09
 
 --
 -- PostgreSQL database dump complete
