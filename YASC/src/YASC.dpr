@@ -8,6 +8,7 @@ uses
 
 begin
   Application.Initialize;
+  Application.Title := 'YASC';
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.
