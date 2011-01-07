@@ -1,6 +1,0 @@
-
-* Embarcadero RAD Studio 2010
-* RxLib
-* ZeosLib
-* PostgreSQL
-* Tango e GNOME Desktop Icons
