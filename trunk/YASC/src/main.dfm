@@ -7,7 +7,7 @@ object MainForm: TMainForm
   ClientHeight = 384
   ClientWidth = 743
   Color = clBtnFace
-  DefaultMonitor = dmMainForm
+  DefaultMonitor = dmDesktop
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -18,8 +18,8 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object SpeedButton1: TSpeedButton
-    Left = 11
+  object SBCompra: TSpeedButton
+    Left = 12
     Top = 12
     Width = 171
     Height = 112
@@ -1278,7 +1278,7 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
   end
-  object SpeedButton2: TSpeedButton
+  object SBProduto: TSpeedButton
     Left = 189
     Top = 12
     Width = 171
@@ -2538,7 +2538,7 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
   end
-  object SpeedButton3: TSpeedButton
+  object SBMercado: TSpeedButton
     Left = 367
     Top = 12
     Width = 171
@@ -3797,9 +3797,10 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
+    OnClick = SBMercadoClick
   end
   object BitBtnSair: TBitBtn
-    Left = 545
+    Left = 544
     Top = 12
     Width = 185
     Height = 112
@@ -5081,33 +5082,24 @@ object MainForm: TMainForm
     AutoCommit = False
     ReadOnly = True
     Connected = True
-    Left = 342
-    Top = 176
-  end
-  object ZSupermercado: TZQuery
-    Connection = ZConnection
-    SQL.Strings = (
-      'select * from tbmercado')
-    Params = <>
-    Left = 466
-    Top = 241
+    Left = 238
+    Top = 240
   end
   object ZSQLMetadata: TZSQLMetadata
     Connection = ZConnection
     MetadataType = mdProcedures
-    Left = 450
-    Top = 176
+    Left = 394
+    Top = 248
   end
   object DSSQLMetadata: TDataSource
-    DataSet = ZSupermercado
-    Left = 374
+    Left = 318
     Top = 243
   end
   object ZSQLMonitor: TZSQLMonitor
     Active = True
     MaxTraceCount = 100
-    Left = 530
-    Top = 178
+    Left = 474
+    Top = 250
   end
   object MainMenu1: TMainMenu
     Left = 248

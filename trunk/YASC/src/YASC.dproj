@@ -48,6 +48,9 @@
 			<DCCReference Include="main.pas">
 				<Form>MainForm</Form>
 			</DCCReference>
+			<DCCReference Include="FMercado.pas">
+				<Form>FormMercado</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>
