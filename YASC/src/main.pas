@@ -14,7 +14,6 @@ uses
 type
   TMainForm = class(TForm)
     ZConnection: TZConnection;
-    ZSupermercado: TZQuery;
     ZSQLMetadata: TZSQLMetadata;
     DSSQLMetadata: TDataSource;
     ZSQLMonitor: TZSQLMonitor;
@@ -31,13 +30,15 @@ type
     Relatrios1: TMenuItem;
     Sair1: TMenuItem;
     BitBtnSair: TBitBtn;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    procedure BitBtnSairClick(Sender: TObject);
+    SBCompra: TSpeedButton;
+    SBProduto: TSpeedButton;
+    SBMercado: TSpeedButton;
     procedure FormCreate(Sender: TObject);
+    procedure BitBtnSairClick(Sender: TObject);
+    procedure SBMercadoClick(Sender: TObject);
   private
     { Private declarations }
+    procedure DoEnterAsTab(var Msg: TMsg; var Handled: Boolean);
   public
     { Public declarations }
   end;
@@ -49,20 +50,23 @@ implementation
 
 {$R *.dfm}
 
-uses ZClasses, ZDbcIntfs, ZDbcDBLib, ZCompatibility;
+uses ZClasses, ZDbcIntfs, ZDbcDBLib, ZCompatibility, FMercado;
+
+procedure TMainForm.DoEnterAsTab(var Msg: TMsg; var Handled: Boolean);
+begin
+  if Msg.Message = WM_KEYDOWN then
+  if Msg.wParam = VK_RETURN then Keybd_event(VK_TAB, 0, 0, 0);
+end;
 
 procedure TMainForm.BitBtnSairClick(Sender: TObject);
 begin
-   if MessageDlg('Deseja realmente sair do sistema?', mtinformation, [mbyes,mbno],0) = mryes then
-   begin
-      ZConnection.Disconnect;
-      Close;
-   end;
+   ZConnection.Disconnect;
+   Close;
 end;
-
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+    Application.OnMessage := DoEnterAsTab;
     try
        ZConnection.Connected;
        Height := 179;
@@ -70,6 +74,16 @@ begin
        ShowMessage('Não foi possível conectar com o banco de dados!');
        Application.Terminate;
     end;
+end;
+
+procedure TMainForm.SBMercadoClick(Sender: TObject);
+begin
+   Application.CreateForm(TFormMercado, FormMercado);
+   try
+      FormMercado.ShowModal;
+   finally
+      FormMercado.Free;
+   end;
 end;
 
 end.
