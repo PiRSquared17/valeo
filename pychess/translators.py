@@ -14,8 +14,12 @@ for lang in langs:
     language = re.findall("<h1>Browsing (.*?) translation</h1>", data)[0]
     start = data.find('Contributors to this translation')
     pers = re.findall('class="sprite person">(.*?)</a>', data[start:])
+    print '[%s] %s' % (lang, language)
+    f = codecs.open('TRANSLATORS', 'a', 'utf-8')
+    f.write('[%s] %s \n' % (lang, language))
+    f.close()
     for per in pers:
-       print "%s: " % language + per
+       print '     %s' % per
        f = codecs.open('TRANSLATORS', 'a', 'utf-8')
-       f.write('%s: %s \n' % (language, pers))
+       f.write('     %s \n' % per)
        f.close()
