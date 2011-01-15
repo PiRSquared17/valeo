@@ -1,7 +1,6 @@
 #!/bin/bash
 # Execute: "# chmod +x /etc/init.d/firewall_test2"
 # firewall_test2 [start, stop, restart]
-# http://www.guiadohardware.com.br
 
 iniciar(){
 
