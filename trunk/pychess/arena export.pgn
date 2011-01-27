@@ -1,0 +1,20 @@
+[Event "Local Event"]
+[Site "Local Site"]
+[Date "2007.05.05"]
+[Round "1"]
+[White "Human"]
+[Black "PyChess 0.7"]
+[Result "1-0"]
+[BlackElo "2000"]
+[ECO "C60"]
+[Opening "Spanish"]
+[Variation "Cozio, 4.O-O g6"]
+[TimeControl "240+6"]
+[Termination "normal"]
+[PlyCount "23"]
+[WhiteType "human"]
+[BlackType "human"]
+
+1. e4 c5 2. Nc3 Nc6 3. Nd5 e5 4. Nf3 Nge7 5. c3 d6 6. Bb5 Bd7 7. O-O h5 8.
+d3 h4 9. c4 g6 10. Bg5 a6 11. Bxc6 bxc6 12. Nf6# 1-0
+
