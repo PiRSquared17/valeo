@@ -1,0 +1,17 @@
+[Event "GNU Chess contra Humano"]
+[Site "?"]
+[Date "2011.01.30"]
+[Round "?"]
+[White "GNU Chess"]
+[Black "Pretas"]
+[Result "1-0"]
+[BlackTime "-20949"]
+[TimeControl "60"]
+[WhiteLevel "normal"]
+[Termination "time forfeit"]
+[WhiteAI "GNU Chess"]
+[WhiteTime "15199"]
+
+1. e4 e5 2. Nf3 f6 3. d4 Nc6 4. d5 Nb4 5. Nc3 Bc5 6. a3 Na6 7. Bxa6 bxa6 8. O-O
+Ne7 9. Na4 Bxf2+ 10. Rxf2 d6 11. Nc3 Bg4 12. Qd3 1-0
+
