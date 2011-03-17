@@ -33,12 +33,12 @@ If you would like help fix the translation of PyChess in your language, see http
 
 Thanks, PyChess team
 
-* Homepage: http://pychess.googlepages.com
+* Homepage: http://www.pychess.org
 * Project page: http://code.google.com/p/pychess
-* Downloads: http://code.google.com/p/pychess/downloads/list
+* Downloads: http://www.pychess.org/download
 """
 
-def sendmail():
+if __name__ == '__main__':
     msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = mail
@@ -59,6 +59,3 @@ def sendmail():
         print '\n%s'%ex
     print 'Email send ok.'
     server.quit()
-
-if __name__ == '__main__':
-    sendmail()
