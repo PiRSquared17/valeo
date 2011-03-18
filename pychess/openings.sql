@@ -1,5 +1,5 @@
 BEGIN TRANSACTION;
-CREATE TABLE openings( fen varchar(73), move varchar(7), wins int DEFAULT 0, draws int DEFAULT 0, loses int DEFAULT 0);
+CREATE TABLE openings( fen varchar(73), move varchar(7),                 wins int DEFAULT 0, draws int DEFAULT 0, loses int DEFAULT 0);
 INSERT INTO "openings" VALUES('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w','e4',291,320,141);
 INSERT INTO "openings" VALUES('rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b','c5',122,194,121);
 INSERT INTO "openings" VALUES('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w','c3',2,6,6);
